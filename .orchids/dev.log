@@ -206,3 +206,4 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 332ms
  GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 330ms
  GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 320ms
+ ✓ Compiled in 802ms

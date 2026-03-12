@@ -4,17 +4,18 @@ import { useAuth } from "@/lib/auth-context";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { 
-  LayoutDashboard, 
-  FileSpreadsheet, 
-  GraduationCap, 
-  Users, 
-  Settings, 
+import {
+  LayoutDashboard,
+  FileSpreadsheet,
+  GraduationCap,
+  Users,
+  Settings,
   LogOut,
   Menu,
   School,
   BookOpen,
-  Zap
+  Zap,
+  AlertTriangle
 } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
 
@@ -23,6 +24,7 @@ const NAV_ITEMS = [
   { href: "/dashboard/gadget-sheet", label: "Gadget Sheet", icon: FileSpreadsheet },
   { href: "/dashboard/grade-cards", label: "Grade Cards", icon: GraduationCap },
   { href: "/dashboard/grace-marks", label: "Grace Marks", icon: Zap },
+  { href: "/dashboard/atkt", label: "ATKT Students", icon: AlertTriangle },
   { href: "/dashboard/students", label: "Student Master", icon: Users },
   { href: "/dashboard/courses", label: "Courses & Depts", icon: BookOpen },
   { href: "/dashboard/settings", label: "College Settings", icon: Settings },
