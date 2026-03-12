@@ -210,3 +210,39 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  ✓ Compiled /dashboard in 17ms
  GET /dashboard?_cb=1773309414916 200 in 340ms
  GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 878ms
+ ✓ Compiled /dashboard/grade-cards in 19ms
+ GET /dashboard/grade-cards 200 in 119ms
+ ✓ Compiled /dashboard/grace-marks in 27ms
+ GET /dashboard/grace-marks 200 in 128ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 446ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 558ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 338ms
+ GET /api/generate/grade-cards/history?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 344ms
+ GET /dashboard/grace-marks 200 in 253ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 438ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 369ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 360ms
+ GET /api/generate/grade-cards/history?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 322ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 340ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 266ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 342ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 313ms
+ ○ Compiling /dashboard/atkt ...
+ ✓ Compiled /dashboard/atkt in 633ms
+ GET /dashboard/atkt 200 in 679ms
+ GET /dashboard/atkt 200 in 33ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 387ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 316ms
+ ✓ Compiled /api/marks/atkt-template in 131ms
+ GET /api/marks/atkt-template 200 in 371ms
+ ○ Compiling /api/marks/atkt-export ...
+ ✓ Compiled /api/marks/atkt-export in 643ms
+ GET /api/marks/atkt-export?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 1210ms
+ GET /dashboard 200 in 47ms
+ GET /dashboard 200 in 72ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 597ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 606ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 410ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 339ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 341ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 343ms
