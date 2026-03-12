@@ -31,19 +31,20 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /dashboard 200 in 76ms
  ✓ Compiled /api/students in 214ms
  GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 7 GET /login?_cb=1773304962069 200 in 111ms
-XGAuqbgNUIvh1 200 in 759ms
- GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 458ms
- GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 605ms
- ○ Compiling /dashboard/grace-marks ...
- ✓ Compiled /dashboard/grace-marks in 1384ms
- GET /dashboard/grace-marks 200 in 1454ms
- GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 410ms
- GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 336ms
- ✓ Compiled /api/grace-marks/history in 147ms
- GET /api/grace-marks/history?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 546ms
- ○ Compiling /dashboard/grade-cards ...
- ✓ Compiled /dashboard/grade-cards in 1143ms
- GET /dashboard/grade-cards 200 in 1245ms
+ ○ Compiling /api/college/register ...
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 805ms
+ POST /api/college/register 500 in 1130ms
+ ✓ Compiled /api/college/register in 1414ms
+ GET /dashboard 200 in 1446ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 292ms
+ GET /dashboard 200 in 71ms
+ GET /dashboard 200 in 69ms
+ GET /dashboard?_cb=1773304962069 200 in 158ms
+ ✓ Compiled /api/marks/atkt in 334ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 599ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 478ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 521ms
+hboard/grade-cards 200 in 1245ms
  ✓ Compiled /api/metadata/[type] in 128ms
  ✓ Compiled /api/generate/grade-cards/history in 214ms
  GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 491ms

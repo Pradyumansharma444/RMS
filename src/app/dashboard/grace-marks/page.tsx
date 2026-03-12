@@ -98,9 +98,17 @@ interface GraceResult {
 }
 
 const isFailedSubject = (sub: any) => {
-  const grade = String(sub?.grade ?? "").trim().toUpperCase();
+  // Explicit is_pass boolean (most reliable)
   if (sub?.is_pass === false) return true;
-  if (grade === "F" || grade === "FAIL" || grade === "F A I L") return true;
+  if (sub?.is_pass === true) return false;
+  // Grade-based detection: F, D, AB, FAIL are all failing grades
+  const grade = String(sub?.grade ?? "").trim().toUpperCase();
+  if (grade === "F" || grade === "D" || grade === "AB" || grade === "FAIL" || grade === "F A I L") return true;
+  // Fallback: check obtained vs passing marks
+  if (sub?.max_marks && sub?.obtained_marks !== undefined) {
+    const passMarks = parseFloat(sub.max_marks) * 0.4;
+    if (parseFloat(sub.obtained_marks) < passMarks) return true;
+  }
   return false;
 };
 
@@ -277,8 +285,8 @@ export default function GraceMarksPage() {
         const currentTotal = parseFloat(sub.obtained_marks || 0);
 
         const totalNeeded = Math.max(0, passingTotal - currentTotal);
-        // Eligible = current internal below threshold AND current external below threshold
-        if (currentInt < intLimit && currentExt < extLimit && totalNeeded > 0) {
+        // Eligible = internal <= threshold AND external <= threshold (inclusive of the threshold value)
+        if (currentInt <= intLimit && currentExt <= extLimit && totalNeeded > 0) {
           filtered.push({
             mark_id: student.id,
             roll_number: student.roll_number,
@@ -299,7 +307,7 @@ export default function GraceMarksPage() {
         }
       });
     });
-    // Sequence: higher marks first, lower marks later
+    // Sequence: higher marks first (students closest to passing at top)
     filtered.sort(compareByHigherMarks);
     return filtered;
   }, [allStudents, internalGraceLimit, externalGraceLimit, isAnalyzed]);
@@ -325,8 +333,8 @@ export default function GraceMarksPage() {
 
         const totalNeeded = Math.max(0, passingTotal - currentTotal);
 
-        // Ordinance: show all failing students with int < threshold AND ext < threshold
-        if (currentInt < intThresh && currentExt < extThresh && totalNeeded > 0) {
+        // Ordinance: show all failing students with int <= threshold AND ext <= threshold (inclusive)
+        if (currentInt <= intThresh && currentExt <= extThresh && totalNeeded > 0) {
           filtered.push({
             mark_id: student.id,
             roll_number: student.roll_number,
@@ -669,9 +677,9 @@ export default function GraceMarksPage() {
             <div className="space-y-1">
               <p className="text-[10px] font-black uppercase tracking-widest text-primary">Dynamic Grace Rules</p>
               <p className="text-xs text-primary/80 font-bold leading-relaxed">
-                Showing failing students where Internal &lt;{" "}
+                Showing failing students where Internal &lt;={" "}
                 <span className="text-primary font-black px-1.5 py-0.5 bg-primary/10 rounded">{internalGraceLimit || 0}</span>{" "}
-                AND External &lt;{" "}
+                AND External &lt;={" "}
                 <span className="text-primary font-black px-1.5 py-0.5 bg-primary/10 rounded">{externalGraceLimit || 0}</span>.
                 {" "}Students are ranked from higher marks to lower marks.
               </p>
@@ -947,7 +955,7 @@ export default function GraceMarksPage() {
                 Ordinance Rules — Marks Threshold Analysis
               </CardTitle>
               <CardDescription className="font-medium text-xs text-amber-700/70 dark:text-amber-400/70">
-                Enter max marks thresholds. Shows all failing students with Internal &lt; X and External &lt; Y, ranked by highest marks.
+                Enter max marks thresholds. Shows all failing students with Internal &lt;= X and External &lt;= Y, ranked by highest marks.
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6 space-y-5">
@@ -1013,9 +1021,9 @@ export default function GraceMarksPage() {
               <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 flex gap-3 items-start">
                 <Info className="h-4 w-4 text-amber-600 mt-0.5 shrink-0" />
                 <p className="text-xs text-amber-700 dark:text-amber-400 font-bold leading-relaxed">
-                  Showing failing students where Internal &lt;{" "}
+                  Showing failing students where Internal &lt;={" "}
                   <span className="font-black px-1.5 py-0.5 bg-amber-500/20 rounded">{ordinanceIntThreshold || "—"}</span>{" "}
-                  AND External &lt;{" "}
+                  AND External &lt;={" "}
                   <span className="font-black px-1.5 py-0.5 bg-amber-500/20 rounded">{ordinanceExtThreshold || "—"}</span>.
                   {" "}Students ranked from highest obtained marks to lowest.
                 </p>
@@ -1105,7 +1113,7 @@ export default function GraceMarksPage() {
                   Eligible Students — {ordinanceStudents.length} found
                 </CardTitle>
                 <CardDescription className="font-medium text-xs">
-                  Internal &lt; {ordinanceIntThreshold} AND External &lt; {ordinanceExtThreshold}. Highest marks shown first.
+                  Internal &lt;= {ordinanceIntThreshold} AND External &lt;= {ordinanceExtThreshold}. Highest marks shown first.
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-0">
