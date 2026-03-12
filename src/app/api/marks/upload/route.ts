@@ -332,6 +332,21 @@ export async function POST(req: NextRequest) {
     const name = String(nameRaw ?? "").trim();
     if (!roll || !name) continue;
 
+    // Skip template/header rows that got imported as data
+    const rollLower = roll.toLowerCase();
+    const nameLower = name.toLowerCase();
+    if (
+      nameLower.includes("full name of the students") ||
+      (nameLower.includes("surname") && nameLower.includes("mothers name")) ||
+      nameLower.includes("name of the students") ||
+      rollLower.includes("roll number") ||
+      rollLower.includes("enrollment") ||
+      rollLower.includes("external") ||
+      rollLower === "sr no" ||
+      rollLower === "sr." ||
+      rollLower === "no."
+    ) continue;
+
     const ern = baseColIdx.ern ? String(row.getCell(baseColIdx.ern).value ?? "").trim() : undefined;
     const enrollment_no = baseColIdx.enrollment_no ? String(row.getCell(baseColIdx.enrollment_no).value ?? "").trim() : undefined;
     const abc_id = baseColIdx.abc_id ? String(row.getCell(baseColIdx.abc_id).value ?? "").trim() : undefined;

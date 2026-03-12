@@ -105,7 +105,21 @@ export async function POST(req: NextRequest) {
     const { data: marksData, error } = await query;
     if (error || !marksData?.length) return NextResponse.json({ error: "No marks data found" }, { status: 404 });
 
-    const students = marksData as StudentMark[];
+    // Filter out template/header rows that may have been saved to DB
+    const isTemplateRow = (s: any) => {
+      const name = (s.student_name ?? "").toLowerCase();
+      const roll = (s.roll_number ?? "").toLowerCase();
+      return (
+        name.includes("full name of the students") ||
+        (name.includes("surname") && name.includes("mothers name")) ||
+        name.includes("name of the students") ||
+        roll.includes("roll number") ||
+        roll.includes("enrollment") ||
+        roll.includes("external") ||
+        roll === "sr no" || roll === "sr." || roll === "no."
+      );
+    };
+    const students = (marksData as StudentMark[]).filter(s => !isTemplateRow(s));
     const pdfDoc = await PDFDocument.create();
     let boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
     let regFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
@@ -204,13 +218,11 @@ export async function POST(req: NextRequest) {
         curY = drawHeader(page, curY, false);
       }
 
-      // Student Header
+      // Student Header (no Univ Seat No / Gender)
       drawRect(page, MARGIN, curY - 18, PAGE_W - MARGIN * 2, 18, rgb(0.96, 0.96, 0.96));
       drawText(page, `Roll No: ${s.roll_number}`, MARGIN + 8, curY - 12, boldFont, 8);
-      drawText(page, `Enrollment No: ${s.enrollment_no || s.ern || "–"}`, MARGIN + 85, curY - 12, boldFont, 8);
-      drawText(page, `Univ Seat No: ${s.university_exam_seat_no || "–"}`, MARGIN + 210, curY - 12, boldFont, 8);
-      drawText(page, `Gender: ${s.gender ? s.gender.charAt(0).toUpperCase() : "–"}`, MARGIN + 325, curY - 12, boldFont, 8);
-      drawText(page, `Name: ${s.student_name}`, MARGIN + 380, curY - 12, boldFont, 8);
+      drawText(page, `Enrollment No: ${s.enrollment_no || s.ern || "–"}`, MARGIN + 90, curY - 12, boldFont, 8);
+      drawText(page, `Name: ${s.student_name}`, MARGIN + 230, curY - 12, boldFont, 8);
       curY -= 18;
 
       // Table Header
@@ -231,16 +243,15 @@ export async function POST(req: NextRequest) {
         const ry = curY - 9;
         const size = 6.5;
 
-        const over = sub.obtained_marks || 0;
-        const int = sub.int_marks ?? "-";
-        const theo = sub.theo_marks ?? (sub.int_marks === undefined ? over : "-");
+        const over = sub.obtained_marks ?? 0;
+        // Show actual value or dash — never substitute over for theo when int is present
+        const int = sub.int_marks != null ? sub.int_marks : "-";
+        const theo = sub.theo_marks != null ? sub.theo_marks : (sub.prac_marks != null ? sub.prac_marks : "-");
         const credits = sub.credits ?? 2;
         const earn = sub.earned_credits ?? (sub.is_pass ? credits : 0);
 
-        // ABS logic: if internal = 0 or external/theo = 0, show ABS in grade column
-        const isAbsent = (sub.int_marks !== undefined && sub.int_marks !== null && sub.int_marks === 0) ||
-                         (sub.theo_marks !== undefined && sub.theo_marks !== null && sub.theo_marks === 0);
-        const displayGrade = isAbsent ? "ABS" : (sub.grade || "-");
+        // ABS = student has grade AB explicitly, not just 0 marks
+        const displayGrade = (sub.grade === "AB" || String(sub.grade).toUpperCase() === "AB") ? "ABS" : (sub.grade || "-");
 
         const sCode = (sub.subject_code || "–").slice(0, 10);
         drawText(page, sCode, rx, ry, regFont, size); rx += colW.code;
