@@ -187,3 +187,22 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 356ms
  GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 361ms
  GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 380ms
+ ○ Compiling /dashboard/grade-cards ...
+ ✓ Compiled /dashboard/grade-cards in 967ms
+ GET /dashboard/grade-cards 200 in 1015ms
+ ✓ Compiled /api/generate/grade-cards/history in 158ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 477ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 816ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 923ms
+ GET /api/generate/grade-cards/history?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 548ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 447ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 373ms
+ GET /api/generate/grade-cards/history?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 373ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 393ms
+ GET /dashboard 200 in 66ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 422ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 398ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 332ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 332ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 330ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 320ms
