@@ -207,3 +207,6 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 330ms
  GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 320ms
  ✓ Compiled in 802ms
+ ✓ Compiled /dashboard in 17ms
+ GET /dashboard?_cb=1773309414916 200 in 340ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 878ms
