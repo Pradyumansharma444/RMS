@@ -97,6 +97,23 @@ interface GraceResult {
   unique_key: string; // combined mark_id and subject_name
 }
 
+const isFailedSubject = (sub: any) => {
+  const grade = String(sub?.grade ?? "").trim().toUpperCase();
+  if (sub?.is_pass === false) return true;
+  if (grade === "F" || grade === "FAIL" || grade === "F A I L") return true;
+  return false;
+};
+
+const compareByHigherMarks = (a: GraceResult, b: GraceResult) => {
+  const aCombined = (a.int_marks || 0) + (a.ext_marks || 0);
+  const bCombined = (b.int_marks || 0) + (b.ext_marks || 0);
+  if (bCombined !== aCombined) return bCombined - aCombined;
+  if (b.int_marks !== a.int_marks) return b.int_marks - a.int_marks;
+  if (b.ext_marks !== a.ext_marks) return b.ext_marks - a.ext_marks;
+  if (b.obtained_marks !== a.obtained_marks) return b.obtained_marks - a.obtained_marks;
+  return a.roll_number.localeCompare(b.roll_number);
+};
+
 export default function GraceMarksPage() {
   const { user } = useAuth();
   const router = useRouter();
@@ -250,25 +267,18 @@ export default function GraceMarksPage() {
 
       student.subjects.forEach((sub: any) => {
         // Skip passed subjects
-        if (sub.is_pass === true || sub.grade !== 'F') return;
+        if (!isFailedSubject(sub)) return;
 
         const maxTotal = parseFloat(sub.max_marks || 100);
         const passingTotal = maxTotal * 0.4;
-        // Use subject-level int/ext max if available (e.g. 20+30), else 40/60 split
-        const maxInt = sub.max_int_marks != null ? parseFloat(sub.max_int_marks) : maxTotal * 0.4;
-        const maxExt = sub.max_ext_marks != null ? parseFloat(sub.max_ext_marks) : maxTotal * 0.6;
-        const passingInt = maxInt * 0.4;
-        const passingExt = maxExt * 0.4;
 
         const currentInt = parseFloat(sub.int_marks || 0);
         const currentExt = (parseFloat(sub.theo_marks || 0)) + (parseFloat(sub.prac_marks || 0));
         const currentTotal = parseFloat(sub.obtained_marks || 0);
 
-        const neededInt = Math.max(0, passingInt - currentInt);
-        const neededExt = Math.max(0, passingExt - currentExt);
         const totalNeeded = Math.max(0, passingTotal - currentTotal);
-        // Eligible = need at most intLimit in internal AND at most extLimit in external
-        if (neededInt <= intLimit && neededExt <= extLimit && (neededInt + neededExt) > 0) {
+        // Eligible = current internal below threshold AND current external below threshold
+        if (currentInt < intLimit && currentExt < extLimit && totalNeeded > 0) {
           filtered.push({
             mark_id: student.id,
             roll_number: student.roll_number,
@@ -289,8 +299,8 @@ export default function GraceMarksPage() {
         }
       });
     });
-    // Students who need the most grace appear first (closest to limit at top)
-    filtered.sort((a, b) => b.grace_needed - a.grace_needed);
+    // Sequence: higher marks first, lower marks later
+    filtered.sort(compareByHigherMarks);
     return filtered;
   }, [allStudents, internalGraceLimit, externalGraceLimit, isAnalyzed]);
 
@@ -305,20 +315,14 @@ export default function GraceMarksPage() {
     allStudents.forEach((student) => {
       if (!student.subjects || !Array.isArray(student.subjects)) return;
       student.subjects.forEach((sub: any) => {
-        if (sub.is_pass === true || sub.grade !== 'F') return;
+        if (!isFailedSubject(sub)) return;
         const maxTotal = parseFloat(sub.max_marks || 100);
         const passingTotal = maxTotal * 0.4;
-        const maxInt = sub.max_int_marks != null ? parseFloat(sub.max_int_marks) : maxTotal * 0.4;
-        const maxExt = sub.max_ext_marks != null ? parseFloat(sub.max_ext_marks) : maxTotal * 0.6;
-        const passingInt = maxInt * 0.4;
-        const passingExt = maxExt * 0.4;
 
         const currentInt = parseFloat(sub.int_marks || 0);
         const currentExt = (parseFloat(sub.theo_marks || 0)) + (parseFloat(sub.prac_marks || 0));
         const currentTotal = parseFloat(sub.obtained_marks || 0);
 
-        const neededInt = Math.max(0, passingInt - currentInt);
-        const neededExt = Math.max(0, passingExt - currentExt);
         const totalNeeded = Math.max(0, passingTotal - currentTotal);
 
         // Ordinance: show all failing students with int < threshold AND ext < threshold
@@ -344,8 +348,8 @@ export default function GraceMarksPage() {
       });
     });
 
-    // Sort: highest obtained marks first (greatest marks at top)
-    filtered.sort((a, b) => b.obtained_marks - a.obtained_marks);
+    // Sequence: higher marks first, lower marks later
+    filtered.sort(compareByHigherMarks);
     return filtered;
   }, [allStudents, ordinanceIntThreshold, ordinanceExtThreshold, isOrdinanceAnalyzed]);
 
@@ -665,8 +669,11 @@ export default function GraceMarksPage() {
             <div className="space-y-1">
               <p className="text-[10px] font-black uppercase tracking-widest text-primary">Dynamic Grace Rules</p>
               <p className="text-xs text-primary/80 font-bold leading-relaxed">
-                Finding students missing up to <span className="text-primary font-black px-1.5 py-0.5 bg-primary/10 rounded">{internalGraceLimit || 0}</span> in Internal AND up to <span className="text-primary font-black px-1.5 py-0.5 bg-primary/10 rounded">{externalGraceLimit || 0}</span> in External.
-                Applying grace will normalize marks to the passing threshold of 40%.
+                Showing failing students where Internal &lt;{" "}
+                <span className="text-primary font-black px-1.5 py-0.5 bg-primary/10 rounded">{internalGraceLimit || 0}</span>{" "}
+                AND External &lt;{" "}
+                <span className="text-primary font-black px-1.5 py-0.5 bg-primary/10 rounded">{externalGraceLimit || 0}</span>.
+                {" "}Students are ranked from higher marks to lower marks.
               </p>
             </div>
           </div>
@@ -1539,4 +1546,3 @@ export default function GraceMarksPage() {
       </div>
     );
   }
-

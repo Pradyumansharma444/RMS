@@ -3,7 +3,7 @@
   "createdAt": 1772004353242,
   "version": "1.0",
   "startupCommands": [
-    "bun install; bun run dev"
+    "npm install; npm run dev"
   ],
   "templateId": "any",
   "vercelProjectId": "prj_gCFwKZHyp5V74j1VPnJHrSZAjW9v",
