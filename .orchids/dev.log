@@ -30,8 +30,8 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 351ms
  GET /dashboard 200 in 76ms
  ✓ Compiled /api/students in 214ms
- GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 739ms
- GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 759ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 7 GET /login?_cb=1773304962069 200 in 111ms
+XGAuqbgNUIvh1 200 in 759ms
  GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 458ms
  GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 605ms
  ○ Compiling /dashboard/grace-marks ...
