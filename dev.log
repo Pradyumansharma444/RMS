@@ -5,61 +5,10 @@
  ⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
    ▲ Next.js 15.5.12 (Turbopack)
    - Local:        http://localhost:3001
-   - Network:      http://172.20.0.19:3001
+   - Network:      http://172.20.0.29:3001
    - Environments: .env.local
    - Experiments (use with caution):
      · optimizePackageImports
 
  ✓ Starting...
- ✓ Ready in 831ms
- ○ Compiling / ...
- ✓ Compiled / in 3.8s
- GET /?_cb=1773845032730 200 in 4108ms
- ⚠ Cross origin request detected from 3001-4c2e90a1-fdab-4e1f-a9cc-81f22bdcc06e.orchids.cloud to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
-Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
- ○ Compiling /login ...
- ✓ Compiled /login in 913ms
- GET /login 200 in 953ms
- GET /?_cb=1773845057268 200 in 66ms
- GET /login 200 in 37ms
- GET /login 200 in 36ms
- GET / 200 in 49ms
- GET /login 200 in 33ms
- ✓ Compiled /api/college/profile in 300ms
- ✓ Compiled /api/college/register in 99ms
- ○ Compiling /dashboard ...
- GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1179ms
- POST /api/college/register 500 in 795ms
- ✓ Compiled /dashboard in 1309ms
- GET /dashboard 200 in 1348ms
- GET /dashboard 200 in 33ms
- GET /dashboard 200 in 35ms
- ✓ Compiled /api/students in 65ms
- GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 560ms
- ✓ Compiled /api/marks/uploads in 116ms
- GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 886ms
- GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 1006ms
- ○ Compiling /dashboard/gadget-sheet ...
- ✓ Compiled /dashboard/gadget-sheet in 719ms
- GET /dashboard/gadget-sheet 200 in 763ms
- ✓ Compiled /api/metadata/[type] in 77ms
- GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1062ms
- GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1067ms
- GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 702ms
- GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1224ms
- GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 468ms
- GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 498ms
- GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 499ms
- GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 488ms
- ✓ Compiled /api/generate/gadget-sheet in 408ms
-Failed to set fetch cache https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png [Error: Failed to set Next.js data cache for https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png, items over 2MB can not be cached (3435001 bytes)]
- POST /api/generate/gadget-sheet 200 in 3780ms
- POST /api/generate/gadget-sheet 200 in 2692ms
- GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 586ms
- GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 626ms
- GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 643ms
- GET /?_cb=1773845703370 200 in 68ms
- GET /?_cb=1773846621068 200 in 54ms
- GET /login 200 in 42ms
- GET /login 200 in 33ms
- GET /?_cb=1773848076063 200 in 54ms
+ ✓ Ready in 985ms
