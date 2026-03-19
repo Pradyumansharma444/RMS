@@ -239,11 +239,36 @@ export async function POST(req: NextRequest) {
     const PAGE_H = 841.89;
     const MARGIN = 30;
 
+    // ── Precise block-height constants ───────────────────────────────────────
+    const HDR_H      = 18;   // student header row (Roll / Enroll / Name)
+    const COL_HDR_H  = 14;   // column label row (Code / Subject / Int …)
+    const ROW_H      = 12;   // one subject row
+    const FOOTER_H   = 18;   // Total / Result / SGPI footer row
+    const GAP_H      = 8;    // gap between students
+    const SIG_RESERVE = 90;  // bottom reserve for signature block
+
+    // Accurate per-student height: header + col-header + N subject rows + footer + gap
+    const calcBlockH = (s: StudentMark) =>
+      HDR_H + COL_HDR_H + (s.subjects.length * ROW_H) + FOOTER_H + GAP_H;
+
+    const studentBlockHeights = students.map(calcBlockH);
+
+    // First-page usable height (after header/banner)
+    const BANNER_H_EST = bannerImg ? (75 + 15 + 45) : (20 + 45); // banner/text + titles
+    const firstPageUsable = PAGE_H - MARGIN * 2 - BANNER_H_EST;
+    const otherPageUsable = PAGE_H - MARGIN * 2;
+
+    // Determine preferred cap: try fitting 4 students (tallest) on a blank page.
+    // If they fit → prefer 4/page. Otherwise → prefer 3/page.
+    const maxStudentH = Math.max(...studentBlockHeights, 1);
+    const prefer4 = (maxStudentH * 4) <= otherPageUsable;
+    const preferredCap = prefer4 ? 4 : 3;
+
     let page = pdfDoc.addPage([PAGE_W, PAGE_H]);
     let curY = PAGE_H - MARGIN;
 
     const drawHeader = (p: PDFPage, y: number, isFirst: boolean) => {
-      if (!isFirst) return y; // Only show header on the first page as requested
+      if (!isFirst) return y; // sub-pages: no repeated header, full height available
 
       let currentY = y;
       if (bannerImg) {
@@ -272,15 +297,13 @@ export async function POST(req: NextRequest) {
 
     curY = drawHeader(page, curY, true);
 
-    // Column widths — fills the full 535pt content area (PAGE_W - 2*MARGIN = 535.28).
-    // code(40) + title(220) + int(38) + theo(38) + over(38) + max(30) + gr(28) + gp(26) + cr(24) + earn(25) = 507
-    // The remaining ~28pt is left as right-padding so the last column text never clips.
+    // Column widths (total ≈ 507pt within 535pt content area, ~28pt right padding)
     const colW = {
       code:  40,
-      title: 220,  // maximised — fits long subject names in one line
-      int:   38,   // "12+@2" fits
-      theo:  38,   // "3+@2" fits
-      over:  38,   // overall with grace
+      title: 220,
+      int:   38,
+      theo:  38,
+      over:  38,
       max:   30,
       gr:    28,
       gp:    26,
@@ -288,36 +311,33 @@ export async function POST(req: NextRequest) {
       earn:  25,
     };
 
-    // ── Per-page student count logic ─────────────────────────────────────────
-    // Dynamic: each student gets placed on the current page if there is physical
-    // space for it (curY - blockH >= MARGIN + sig_reserve).  The "4 per page /
-    // 3 per page" rule acts as a SOFT upper limit — but if the page still has
-    // enough room we allow one extra student rather than leaving a blank gap.
-    // This fills pages completely and avoids wasted white space.
-    const footerReserveH = 90;  // space reserved for signature block at the very end
-    const studentBlockHeights = students.map(s => 18 + 14 + (s.subjects.length * 12) + 26); // hdr+colhdr+rows+footer
-    const maxStudentH = Math.max(...studentBlockHeights, 1);
-    const usableH = PAGE_H - MARGIN * 2;
-    // Preferred cap: 4 if any four fit, else 3.  Used only as a hint.
-    const studentsPerPage = (maxStudentH * 4) <= usableH ? 4 : 3;
+    // ── Per-page student placement ────────────────────────────────────────────
+    // Rules:
+    //   1. Try to fit `preferredCap` (4 or 3) students per page.
+    //   2. If a student physically does not fit in the remaining space → new page.
+    //   3. Never put more than preferredCap students on one page even if space allows
+    //      (keeps the sheet visually consistent and readable).
+    //   4. On sub-pages (page > 1) the full page height is available.
     let studentsOnCurrentPage = 0;
+    let isFirstPage = true;
 
     for (const s of students) {
       const sIdx = students.indexOf(s);
       const blockH = studentBlockHeights[sIdx];
+      const usableNow = isFirstPage ? firstPageUsable : otherPageUsable;
 
-      // Start a new page when there is physically no space left for this student.
-      // The studentsPerPage cap is advisory: if space is still available we keep
-      // adding students to fill the page (no blank gaps), but we never exceed
-      // studentsPerPage+1 as a safety upper bound.
-      const noSpace = curY - blockH < MARGIN + footerReserveH;
-      const hardCapExceeded = studentsOnCurrentPage >= studentsPerPage + 1;
+      // Break to a new page if:
+      //   (a) no physical space left for this block, OR
+      //   (b) preferred cap already reached for this page
+      const noSpace       = (curY - blockH) < (MARGIN + SIG_RESERVE);
+      const capReached    = studentsOnCurrentPage >= preferredCap;
 
-      if (studentsOnCurrentPage > 0 && (noSpace || hardCapExceeded)) {
+      if (studentsOnCurrentPage > 0 && (noSpace || capReached)) {
         page = pdfDoc.addPage([PAGE_W, PAGE_H]);
         curY = PAGE_H - MARGIN;
         curY = drawHeader(page, curY, false);
         studentsOnCurrentPage = 0;
+        isFirstPage = false;
       }
 
       // Student Header — Roll No left | Enrollment center | Name right (dynamic)
@@ -573,10 +593,11 @@ export async function POST(req: NextRequest) {
         ? ((totalObtainedForFooter / totalMaxForFooter) * 100).toFixed(2)
         : "–";
 
-      const footerY = curY - 14;
+      // Footer text sits 5pt above the bottom of the footer rect
+      const footerY = curY - (FOOTER_H - 5);
 
       // Draw footer background
-      drawRect(page, MARGIN, curY - 18, PAGE_W - MARGIN * 2, 18, rgb(0.94, 0.94, 0.94));
+      drawRect(page, MARGIN, curY - FOOTER_H, PAGE_W - MARGIN * 2, FOOTER_H, rgb(0.94, 0.94, 0.94));
 
       // Total
       let fx = MARGIN + 5;
@@ -612,7 +633,8 @@ export async function POST(req: NextRequest) {
         drawText(page, `CGPA: ${baseCGPA !== null ? baseCGPA.toFixed(2) : "–"}`, fx, footerY, boldFont, 7.5);
       }
 
-      curY -= 26; // Space between students
+      curY -= FOOTER_H; // move past footer
+      curY -= GAP_H;    // gap before next student block
       studentsOnCurrentPage++;
     }
 
@@ -621,8 +643,7 @@ export async function POST(req: NextRequest) {
     const SIG_H = 40;
     const STAMP_SIZE = 70;
 
-    // Need enough room for stamp + label below it
-    const SIG_BLOCK_H = STAMP_SIZE + 18; // stamp height + label below
+    const SIG_BLOCK_H = STAMP_SIZE + 18;
     if (curY - SIG_BLOCK_H < MARGIN) {
       page = pdfDoc.addPage([PAGE_W, PAGE_H]);
       curY = PAGE_H - MARGIN;
