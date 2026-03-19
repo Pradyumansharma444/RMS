@@ -383,7 +383,11 @@ export async function POST(req: NextRequest) {
         const canUseDerivedExt = sub.theo_marks == null && Number.isFinite(derivedExt) && derivedExt >= 0 && (sub.int_marks != null || sub.prac_marks != null);
         const extNum = sub.theo_marks != null ? sub.theo_marks : (canUseDerivedExt ? derivedExt : (sub.prac_marks != null ? sub.prac_marks : 0));
 
+        // ── isCC must be declared FIRST before any logic that uses it ──────────
+        const isCC = sub.is_cc || sub.subject_code === "CC Subject";
+
         // Check if grace was applied to this subject
+        // The engine stores grace_marks with mark_id = student.id (student_marks.id)
         const graceKey = `${s.id}|${sub.subject_name.trim().toLowerCase()}`;
         const graceEntry = graceLookup.get(graceKey);
         const intGrace = graceEntry?.int_grace ?? 0;
@@ -391,9 +395,9 @@ export async function POST(req: NextRequest) {
         const totalGrace = intGrace + extGrace;
 
         // ── PHASE 1A: Grace marks display format ────────────────────────────
-        // If grace applied, show "[OriginalMarks]+@[GraceAmt]" (e.g. "12+@2")
-        // NOT "C*" in the grade column — instead grade is computed from total marks
-        // and the +@ notation in Int/Ext/Over columns shows transparency.
+        // The apply route adds grace into int_marks / theo_marks directly in DB.
+        // grace_marks.original_marks = int_grace added, grace_marks.grace_given = ext_grace added.
+        // So current intNum already includes intGrace. Display as "(original)+@(grace)".
 
         // Internal marks display
         const int = sub.int_marks != null
@@ -429,9 +433,8 @@ export async function POST(req: NextRequest) {
 
         // ── PHASE 1B: Strict per-head 40% PASS/FAIL logic ───────────────────
         // For two-head subjects (int + ext): BOTH heads must independently reach 40%.
-        // Subject max split: if we know int_marks and theo_marks, and max_marks is set,
-        // we derive each head's max by their proportion of total max.
-        // After grace is applied, use the updated (grace-included) marks for this check.
+        // Use the actual subject's stored max_int / max_ext if available, otherwise
+        // derive from the known 40/60 split of displayMax.
         let isForcedFail = false;
 
         if (!isAbsent && !isCC) {
@@ -439,19 +442,19 @@ export async function POST(req: NextRequest) {
           const hasExt = sub.theo_marks != null && sub.theo_marks !== undefined;
 
           if (hasInt && hasExt) {
-            // Two-head subject: derive each head's maximum marks.
-            // Standard Mumbai University split: 40% internal / 60% external of total max.
-            // Use stored max_marks as total; compute proportional max per head.
+            // Two-head subject: use stored max_int / max_ext when available.
+            // Fallback: standard Mumbai University 40/60 split of displayMax.
             const totalMax = displayMax || 50;
-            // Prefer a 40/60 split; if the stored int/ext values suggest a different ratio use that.
-            const rawSum = intNum + extNum;
             let maxInt: number, maxExt: number;
-            if (rawSum > 0 && rawSum <= totalMax) {
-              // Proportional split based on actual component values, capped to totalMax
-              maxInt = Math.round(totalMax * (intNum / rawSum));
-              maxExt = totalMax - maxInt;
+            // @ts-ignore — max_int / max_ext may be stored on subject objects from the engine
+            const storedMaxInt = (sub as any).max_int;
+            // @ts-ignore
+            const storedMaxExt = (sub as any).max_ext ?? (sub as any).max_theo;
+            if (storedMaxInt > 0 && storedMaxExt > 0) {
+              maxInt = storedMaxInt;
+              maxExt = storedMaxExt;
             } else {
-              // Default 40/60 split
+              // Standard 40/60 split — do NOT use student's own marks as the denominator
               maxInt = Math.round(totalMax * 0.4);
               maxExt = totalMax - maxInt;
             }
@@ -488,12 +491,12 @@ export async function POST(req: NextRequest) {
           displayGrade = "ABS";
         } else if (isCC) {
           // CC subject always shows grade as stored (never forced-fail)
-          displayGrade = String(sub.grade || "-").replace(/[*@#]+$/, "").trim() || "-";
+          displayGrade = String(sub.grade || "-").replace(/[*@#★]+$/, "").trim() || "-";
         } else if (isForcedFail) {
           displayGrade = "F";
         } else {
-          // Strip grace suffix symbols (* @ #) — grace notation is in marks columns via +@
-          displayGrade = String(sub.grade || "-").replace(/[*@#]+$/, "").trim() || "-";
+          // Strip grace suffix symbols (* @ # ★) — grace notation is in marks columns via +@
+          displayGrade = String(sub.grade || "-").replace(/[*@#★]+$/, "").trim() || "-";
           // Sanity: if stored grade is explicitly F and no grace applied, keep F
           if (displayGrade === "F" && !gracedThisSubject) isForcedFail = true;
         }
@@ -503,9 +506,6 @@ export async function POST(req: NextRequest) {
         if (isAbsent || isForcedFail || displayGrade === "F") {
           studentHasAbsOrFail = true;
         }
-
-        // For CC Subject: code stays "CC Subject", name shows the actual activity name
-        const isCC = sub.is_cc || sub.subject_code === "CC Subject";
         const displayCode = isCC ? "CC Subj" : (sub.subject_code || "–").slice(0, 10);
 
         // Subject name — single line, truncated to fit column width (no wrapping)

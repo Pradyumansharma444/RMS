@@ -66,12 +66,16 @@ function checkPass(sub: SubjectMark): { passes: boolean; intFails: boolean; extF
   const hasExt = extM !== undefined && extM !== null;
 
   if (hasInt && hasExt) {
-    const total = intM! + extM!;
-    if (total === 0) return { passes: false, intFails: true, extFails: true };
-    const estMaxInt = Math.round((sub.max_marks || 50) * (intM! / total));
-    const estMaxExt = (sub.max_marks || 50) - estMaxInt;
-    const intPasses = intM! >= Math.ceil(estMaxInt * 0.4);
-    const extPasses = extM! >= Math.ceil(estMaxExt * 0.4);
+    if (intM! + extM! === 0) return { passes: false, intFails: true, extFails: true };
+    // Use stored max_int / max_ext when available (set by upload parser from header).
+    // Fallback: standard Mumbai University 40/60 split of subject total max.
+    const totalMax = sub.max_marks || 50;
+    const storedMaxInt = (sub as any).max_int;
+    const storedMaxExt = (sub as any).max_ext ?? (sub as any).max_theo;
+    const maxInt = (storedMaxInt > 0) ? storedMaxInt : Math.round(totalMax * 0.4);
+    const maxExt = (storedMaxExt > 0) ? storedMaxExt : (totalMax - maxInt);
+    const intPasses = intM! >= Math.ceil(maxInt * 0.4);
+    const extPasses = extM! >= Math.ceil(maxExt * 0.4);
     return { passes: intPasses && extPasses, intFails: !intPasses, extFails: !extPasses };
   }
   const passes = (sub.obtained_marks ?? 0) >= Math.ceil((sub.max_marks ?? 50) * 0.4);
@@ -202,9 +206,12 @@ export async function POST(req: NextRequest) {
         let newExt = extM;
 
         if (hasInt && hasExt) {
-          const total = intM + extM;
-          const estMaxInt = total > 0 ? Math.round(sub.max_marks * (intM / total)) : Math.round(sub.max_marks * 0.4);
-          const estMaxExt = sub.max_marks - estMaxInt;
+          // Use standard 40/60 split — do NOT derive max from student's own marks ratio
+          const totalMax = sub.max_marks || 50;
+          const smInt = (sub as any).max_int;
+          const smExt = (sub as any).max_ext ?? (sub as any).max_theo;
+          const estMaxInt = (smInt > 0) ? smInt : Math.round(totalMax * 0.4);
+          const estMaxExt = (smExt > 0) ? smExt : (totalMax - estMaxInt);
 
           // Fix int head if failing
           if (intFails) {
@@ -291,9 +298,12 @@ export async function POST(req: NextRequest) {
         let newExt = extM;
 
         if (hasInt && hasExt) {
-          const total = intM + extM;
-          const estMaxInt = total > 0 ? Math.round(sub.max_marks * (intM / total)) : Math.round(sub.max_marks * 0.4);
-          const estMaxExt = sub.max_marks - estMaxInt;
+          // Use standard 40/60 split — do NOT derive max from student's own marks ratio
+          const totalMax5042 = sub.max_marks || 50;
+          const sm5042Int = (sub as any).max_int;
+          const sm5042Ext = (sub as any).max_ext ?? (sub as any).max_theo;
+          const estMaxInt = (sm5042Int > 0) ? sm5042Int : Math.round(totalMax5042 * 0.4);
+          const estMaxExt = (sm5042Ext > 0) ? sm5042Ext : (totalMax5042 - estMaxInt);
 
           if (intFails) {
             const intPassMark = Math.ceil(estMaxInt * 0.4);

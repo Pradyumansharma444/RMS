@@ -103,17 +103,24 @@ export async function POST(req: NextRequest) {
     }
 
     // Mumbai University: strict 40% per head (internal AND external independently)
-    const maxInt = parseFloat(sub.max_int) || 0;
-    const maxExt = parseFloat(sub.max_ext) || parseFloat(sub.max_theo) || 0;
+    // Use stored max_int/max_ext; fallback to standard 40/60 split of subject max.
+    const rawMaxInt = parseFloat(sub.max_int) || 0;
+    const rawMaxExt = parseFloat(sub.max_ext) || parseFloat(sub.max_theo) || 0;
+    const hasHeadMax = rawMaxInt > 0 && rawMaxExt > 0;
+    const maxInt = hasHeadMax ? rawMaxInt : Math.round(max * 0.4);
+    const maxExt = hasHeadMax ? rawMaxExt : (max - maxInt);
+    // Only apply per-head rule when both int and ext marks are present
+    const hasIntMarks = sub.int_marks != null;
+    const hasExtMarks = sub.theo_marks != null;
     let is_pass: boolean;
-    if (maxInt > 0 && maxExt > 0) {
+    if (hasIntMarks && hasExtMarks) {
       // Both heads defined — each must independently meet 40%
-      const passInt = maxInt * 0.4;
-      const passExt = maxExt * 0.4;
+      const passInt = Math.ceil(maxInt * 0.4);
+      const passExt = Math.ceil(maxExt * 0.4);
       is_pass = newInt >= passInt && newTheo >= passExt;
     } else {
       // Single-head subject — 40% of total max
-      const passing = max * 0.4;
+      const passing = Math.ceil(max * 0.4);
       is_pass = obtained >= passing;
     }
 

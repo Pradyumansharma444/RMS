@@ -679,22 +679,73 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Save to DB
-  const { data: uploadRec, error: upErr } = await supabaseAdmin
+  // Save to DB — detect existing upload for same dept+year+semester and UPDATE it instead
+  // of creating a duplicate. This prevents stale records when re-uploading the same batch.
+  const { data: existingUpload } = await supabaseAdmin
     .from("marks_uploads")
-    .insert({
-      college_id: college.id,
-      exam_name,
-      department,
-      year,
-      file_name: file.name,
-      status: "processing",
-      semester,
-      hod_name,
-      title_suffix,
-    })
-    .select()
-    .single();
+    .select("id")
+    .eq("college_id", college.id)
+    .eq("department", department)
+    .eq("year", year)
+    .eq("semester", semester || "")
+    .neq("status", "deleted")
+    .is("deleted_at", null)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  let uploadRec: { id: string } | null = null;
+  let upErr: any = null;
+
+  if (existingUpload?.id) {
+    // Update existing record — overwrite metadata & reset status
+    const { data: updated, error: updErr } = await supabaseAdmin
+      .from("marks_uploads")
+      .update({
+        exam_name,
+        file_name: file.name,
+        status: "processing",
+        hod_name,
+        title_suffix,
+        pdf_url: null, // invalidate cached PDF so it regenerates
+      })
+      .eq("id", existingUpload.id)
+      .select("id")
+      .single();
+    uploadRec = updated;
+    upErr = updErr;
+
+    // Delete old student_marks for this upload so fresh data replaces them cleanly.
+    // Grace marks reference student_marks.id (mark_id), so fetch those IDs first
+    // before deleting student_marks, then purge orphaned grace entries.
+    if (uploadRec) {
+      const { data: oldMarkIds } = await supabaseAdmin
+        .from("student_marks").select("id").eq("upload_id", uploadRec.id).eq("college_id", college.id);
+      if (oldMarkIds && oldMarkIds.length > 0) {
+        await supabaseAdmin.from("grace_marks").delete().in("mark_id", oldMarkIds.map((r: any) => r.id));
+      }
+      await supabaseAdmin.from("student_marks").delete().eq("upload_id", uploadRec.id).eq("college_id", college.id);
+    }
+  } else {
+    // Create new upload record
+    const { data: inserted_rec, error: insertErr } = await supabaseAdmin
+      .from("marks_uploads")
+      .insert({
+        college_id: college.id,
+        exam_name,
+        department,
+        year,
+        file_name: file.name,
+        status: "processing",
+        semester,
+        hod_name,
+        title_suffix,
+      })
+      .select()
+      .single();
+    uploadRec = inserted_rec;
+    upErr = insertErr;
+  }
 
   if (upErr || !uploadRec) {
     return NextResponse.json({ error: "Failed to create upload record" }, { status: 500 });
