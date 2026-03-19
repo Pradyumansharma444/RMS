@@ -1,0 +1,75 @@
+$ next dev --turbopack
+   ▲ Next.js 15.5.9 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://172.20.0.101:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 970ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.7s
+ GET / 200 in 5055ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1344ms
+ GET /login?_cb=1773569553769 200 in 1464ms
+ GET /login?_cb=1773569553769 200 in 93ms
+ ⚠ Cross origin request detected from 3000-fbd983f3-d516-4941-95a5-8f186c35032b.orchids.cloud to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ○ Compiling /api/college/register ...
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1826ms
+ POST /api/college/register 500 in 1840ms
+ ✓ Compiled /api/college/register in 1888ms
+ GET /dashboard 200 in 1780ms
+ GET /dashboard 200 in 67ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 381ms
+ GET /dashboard 200 in 80ms
+ ✓ Compiled /api/marks/uploads in 125ms
+ ✓ Compiled /api/students in 194ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 798ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 752ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 1306ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 574ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 605ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 662ms
+ ○ Compiling /dashboard/grace-marks ...
+ ✓ Compiled /dashboard/grace-marks in 2.5s
+ GET /dashboard/grace-marks 200 in 2759ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 910ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 592ms
+ ✓ Compiled /api/grace-marks/history in 122ms
+ GET /api/grace-marks/history?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 931ms
+ ○ Compiling /dashboard/grace-marks/history ...
+ ✓ Compiled /dashboard/grace-marks/history in 1154ms
+ GET /dashboard/grace-marks/history 200 in 1495ms
+ GET /login?_cb=1773569956958 200 in 65ms
+ GET /login?_cb=1773569956958 200 in 88ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1228ms
+ GET /dashboard 200 in 74ms
+ GET /dashboard 200 in 69ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1032ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 968ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 1220ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 647ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 488ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 779ms
+ GET /dashboard/grace-marks 200 in 273ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 768ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 558ms
+ GET /api/grace-marks/history?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 766ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1305ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1130ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 1335ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 582ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 552ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 656ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 571ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 440ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 674ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 469ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 577ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 799ms

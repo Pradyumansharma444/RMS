@@ -1,0 +1,24 @@
+
+> nextjs-new@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
+   ▲ Next.js 15.5.12 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://172.20.0.17:3001
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 1026ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.5s
+ GET /?_cb=1773838891507 200 in 4922ms
+ GET /?_cb=1773838891507 200 in 113ms
+ GET /?_cb=1773839544094 200 in 98ms
+ GET /?_cb=1773839786160 200 in 115ms
+ ○ Compiling /dashboard/grace-marks/history ...
+ ✓ Compiled /dashboard/grace-marks/history in 3.2s
+ GET /dashboard/grace-marks/history?_cb=1773839786160 200 in 3574ms
+ GET /dashboard/grace-marks/history?_cb=1773840582421 200 in 323ms

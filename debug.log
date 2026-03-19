@@ -1,0 +1,493 @@
+2026-02-25T07:45:05.943Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:45:06.014Z [console][log] [Fast Refresh] done in 160ms
+2026-02-25T07:45:06.103Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:45:06.110Z [console][log] [Fast Refresh] done in 72ms
+2026-02-25T07:45:06.126Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T07:45:06.537Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:45:06.555Z [console][log] [Fast Refresh] done in 133ms
+2026-02-25T07:46:27.989Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:46:28.021Z [console][log] [Fast Refresh] done in 140ms
+2026-02-25T07:46:28.144Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:46:28.150Z [console][log] [Fast Refresh] done in 57ms
+2026-02-25T07:46:28.173Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T07:47:25.396Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:47:25.567Z [console][log] [Fast Refresh] done in 279ms
+2026-02-25T07:47:25.583Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T07:42:18.440Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:43:05.159Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:43:05.167Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:43:15.690Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:43:15.695Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:43:24.602Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:43:24.607Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:44:12.934Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:44:12.939Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:45:06.114Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:45:06.120Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:46:28.159Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:46:28.165Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:47:25.572Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:47:25.577Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:52:43.439Z [console][error] Image with src "http://localhost:3000/vercel.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+2026-02-25T07:58:10.136Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:58:10.142Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+16:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+18:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+1a:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+29:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ui/sonner.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_a9c44808._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"Toaster"]
+2b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/orchids-visual-edits/dist/index.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_a466eb45._.js","/_next/static/chunks/orchids-projects_rms-co... [truncated]
+2026-02-25T07:59:28.823Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T07:59:29.018Z [console][warn] [Fast Refresh] rebuilding
+2026-02-25T07:59:29.197Z [console][warn] [Fast Refresh] done in 290ms
+2026-02-25T07:59:30.775Z [console][warn] [Fast Refresh] rebuilding
+2026-02-25T07:59:30.863Z [console][warn] [Fast Refresh] done in 195ms
+2026-02-25T07:59:28.823Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T07:59:29.018Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:59:29.197Z [console][log] [Fast Refresh] done in 290ms
+2026-02-25T07:59:30.775Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T07:59:30.863Z [console][log] [Fast Refresh] done in 195ms
+2026-02-25T07:59:28.823Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T07:59:28.823Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T08:01:47.533Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T08:01:47.736Z [console][warn] [Fast Refresh] rebuilding
+2026-02-25T08:01:48.045Z [console][warn] [Fast Refresh] done in 423ms
+2026-02-25T08:04:53.735Z [console][warn] [Fast Refresh] rebuilding
+2026-02-25T08:04:53.833Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-25T08:04:53.862Z [console][warn] [Fast Refresh] done in 208ms
+2026-02-25T08:04:55.032Z [console][warn] [Fast Refresh] rebuilding
+2026-02-25T08:04:55.066Z [console][warn] [Fast Refresh] done in 147ms
+2026-02-25T08:05:02.143Z [console][warn] [Fast Refresh] rebuilding
+2026-02-25T08:05:02.240Z [console][warn] [Fast Refresh] done in 205ms
+2026-02-25T08:01:47.533Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-02-25T08:01:47.736Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T08:01:48.045Z [console][log] [Fast Refresh] done in 423ms
+2026-02-25T08:04:53.735Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T08:04:53.833Z [console][warn] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-25T08:04:53.863Z [console][log] [Fast Refresh] done in 208ms
+2026-02-25T08:04:55.033Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T08:04:55.066Z [console][log] [Fast Refresh] done in 147ms
+2026-02-25T08:05:02.143Z [console][log] [Fast Refresh] rebuilding
+2026-02-25T08:05:02.240Z [console][log] [Fast Refresh] done in 205ms
+2026-03-01T12:26:21.900Z [console][log] [Fast Refresh] done in 112ms
+2026-03-01T12:26:27.179Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:27.562Z [console][log] [Fast Refresh] done in 488ms
+2026-03-01T12:26:27.670Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:27.688Z [console][log] [Fast Refresh] done in 125ms
+2026-03-01T12:26:27.798Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:27.814Z [console][log] [Fast Refresh] done in 125ms
+2026-03-01T12:26:29.171Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:29.172Z [console][log] [Fast Refresh] done in 108ms
+2026-03-01T12:26:44.279Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:44.315Z [console][log] [Fast Refresh] done in 140ms
+2026-03-01T12:26:53.494Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:53.501Z [console][log] [Fast Refresh] done in 109ms
+2026-03-01T12:27:15.045Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:27:15.833Z [console][log] [Fast Refresh] done in 893ms
+2026-03-01T12:26:21.900Z [console][log] [Fast Refresh] done in 112ms
+2026-03-01T12:26:27.179Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:27.562Z [console][log] [Fast Refresh] done in 488ms
+2026-03-01T12:26:27.670Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:27.688Z [console][log] [Fast Refresh] done in 125ms
+2026-03-01T12:26:27.798Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:27.814Z [console][log] [Fast Refresh] done in 125ms
+2026-03-01T12:26:29.171Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:29.172Z [console][log] [Fast Refresh] done in 108ms
+2026-03-01T12:26:44.279Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:44.315Z [console][log] [Fast Refresh] done in 140ms
+2026-03-01T12:26:53.494Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:26:53.501Z [console][log] [Fast Refresh] done in 109ms
+2026-03-01T12:27:15.045Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:27:15.833Z [console][log] [Fast Refresh] done in 893ms
+2026-03-01T12:56:33.125Z [console][warn] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+2026-03-01T12:56:33.201Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-03-01T12:58:08.355Z [console][warn] [Fast Refresh] rebuilding
+2026-03-01T12:58:08.467Z [console][warn] [Fast Refresh] done in 218ms
+2026-03-01T12:58:25.354Z [console][warn] [Fast Refresh] rebuilding
+2026-03-01T12:58:25.578Z [console][warn] [Fast Refresh] done in 294ms
+2026-03-01T12:58:35.713Z [console][warn] [Fast Refresh] rebuilding
+2026-03-01T12:58:35.925Z [console][warn] [Fast Refresh] done in 284ms
+2026-03-01T12:56:33.202Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-03-01T12:58:08.356Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:58:08.468Z [console][log] [Fast Refresh] done in 218ms
+2026-03-01T12:58:25.354Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:58:25.578Z [console][log] [Fast Refresh] done in 294ms
+2026-03-01T12:58:35.713Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T12:58:35.925Z [console][log] [Fast Refresh] done in 284ms
+2026-03-01T18:32:15.523Z [console][warn] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+2026-03-01T18:32:15.590Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-03-01T18:32:49.487Z [console][warn] [Fast Refresh] rebuilding
+2026-03-01T18:32:49.503Z [console][warn] [Fast Refresh] done in 124ms
+2026-03-01T18:32:52.394Z [console][warn] [Fast Refresh] rebuilding
+2026-03-01T18:32:52.413Z [console][warn] [Fast Refresh] done in 128ms
+2026-03-01T18:32:15.591Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-03-01T18:32:49.488Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T18:32:49.504Z [console][log] [Fast Refresh] done in 124ms
+2026-03-01T18:32:52.395Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T18:32:52.413Z [console][log] [Fast Refresh] done in 128ms
+2026-03-01T18:32:15.523Z [console][warn] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+2026-03-01T18:32:15.590Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-03-01T18:32:49.487Z [console][warn] [Fast Refresh] rebuilding
+2026-03-01T18:32:49.503Z [console][warn] [Fast Refresh] done in 124ms
+2026-03-01T18:32:52.394Z [console][warn] [Fast Refresh] rebuilding
+2026-03-01T18:32:52.413Z [console][warn] [Fast Refresh] done in 128ms
+2026-03-01T18:32:15.591Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/login
+2026-03-01T18:32:49.488Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T18:32:49.504Z [console][log] [Fast Refresh] done in 124ms
+2026-03-01T18:32:52.395Z [console][log] [Fast Refresh] rebuilding
+2026-03-01T18:32:52.413Z [console][log] [Fast Refresh] done in 128ms
+2026-03-04T07:08:21.939Z [console][log] {"file":{"fileName":"./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx"}}
+2026-03-04T07:08:21.995Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:22.051Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:23.816Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:23.882Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:23.935Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:24.848Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:25.477Z [console][log] [Fast Refresh] done in 648ms
+2026-03-04T07:08:25.712Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/
+2026-03-04T07:08:25.809Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.259Z [console][log] [Fast Refresh] done in 564ms
+2026-03-04T07:08:26.762Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.778Z [console][log] [Fast Refresh] done in 124ms
+2026-03-04T07:08:29.726Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:29.744Z [console][log] [Fast Refresh] done in 122ms
+2026-03-04T07:08:26.262Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+19:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ThemeProvider.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"ThemeProvider"]
+1b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+1d:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/MobileRestriction.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"MobileRestriction"]
+1f:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+22:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/app/template.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static... [truncated]
+2026-03-04T07:08:23.755Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx:654:14
+Parsing ecmascript source code failed
+  652 |                 </Button>
+  653 |               </div>
+> 654 |             )}
+      |              ^
+  655 |           </CardContent>
+  656 |         </Card>
+  657 |       </div>
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+2026-03-04T07:08:23.815Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:23.816Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx:654:14
+Parsing ecmascript source code failed
+  652 |                 </Button>
+  653 |               </div>
+> 654 |             )}
+      |              ^
+  655 |           </CardContent>
+  656 |         </Card>
+  657 |       </div>
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+2026-03-04T07:08:23.881Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:23.882Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx:654:14
+Parsing ecmascript source code failed
+  652 |                 </Button>
+  653 |               </div>
+> 654 |             )}
+      |              ^
+  655 |           </CardContent>
+  656 |         </Card>
+  657 |       </div>
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+2026-03-04T07:08:23.935Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:08:24.848Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:08:25.477Z [console][warn] [Fast Refresh] done in 648ms
+2026-03-04T07:08:25.711Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/
+2026-03-04T07:08:25.809Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.259Z [console][warn] [Fast Refresh] done in 564ms
+2026-03-04T07:08:26.762Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.777Z [console][warn] [Fast Refresh] done in 124ms
+2026-03-04T07:08:29.726Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:08:29.744Z [console][warn] [Fast Refresh] done in 122ms
+2026-03-04T07:08:21.939Z [console][log] {"file":{"fileName":"./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx"}}
+2026-03-04T07:08:21.995Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:22.051Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:23.816Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:23.882Z [console][error] ./orchids-projects/rms-college-gadget-grade-cards/src/app/dashboard/students/page.tsx
+Error evaluating Node.js code
+SyntaxError: Expected corresponding JSX closing tag for <div>. (655:10)
+    [at toParseError (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parse-error.ts:95:45)]
+    [at raise (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\tokenizer\index.ts:1507:19)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:527:18)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElementAt (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:483:34)]
+    [at jsxParseElement (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:559:19)]
+    [at parseExprAtom (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\plugins\jsx\index.ts:573:21)]
+    [at parseExprSubscripts (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:742:23)]
+    [at parseUpdate (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:721:21)]
+    [at parseMaybeUnary (C:\Users\rohit\orchids-projects\rms-college-gadget-grade-cards\node_modules\@babel\parser\src\parser\expression.ts:683:23)]
+2026-03-04T07:08:23.935Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:24.848Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:25.477Z [console][log] [Fast Refresh] done in 648ms
+2026-03-04T07:08:25.712Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/
+2026-03-04T07:08:25.809Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.259Z [console][log] [Fast Refresh] done in 564ms
+2026-03-04T07:08:26.762Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.778Z [console][log] [Fast Refresh] done in 124ms
+2026-03-04T07:08:29.726Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:29.744Z [console][log] [Fast Refresh] done in 122ms
+2026-03-04T07:08:26.262Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+19:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ThemeProvider.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"ThemeProvider"]
+1b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+1d:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/MobileRestriction.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"MobileRestriction"]
+1f:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+22:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/app/template.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static... [truncated]
+2026-03-04T07:08:26.262Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+19:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ThemeProvider.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"ThemeProvider"]
+1b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+1d:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/MobileRestriction.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"MobileRestriction"]
+1f:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+22:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/app/template.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static... [truncated]
+2026-03-04T07:08:25.809Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.259Z [console][log] [Fast Refresh] done in 564ms
+2026-03-04T07:08:26.762Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:26.778Z [console][log] [Fast Refresh] done in 124ms
+2026-03-04T07:08:29.726Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:08:29.744Z [console][log] [Fast Refresh] done in 122ms
+2026-03-04T07:11:47.157Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:11:47.362Z [console][log] [Fast Refresh] done in 290ms
+2026-03-04T07:13:13.120Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:13:13.247Z [console][log] [Fast Refresh] done in 229ms
+2026-03-04T07:08:26.262Z [network][GET 200] 
+  response: 2:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"SegmentViewNode"]
+4:"$Sreact.fragment"
+19:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/ThemeProvider.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"ThemeProvider"]
+1b:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/lib/auth-context.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"AuthProvider"]
+1d:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/components/MobileRestriction.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_285fc221._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_layout_tsx_623b954f._.js"],"MobileRestriction"]
+1f:I["[project]/orchids-projects/rms-college-gadget-grade-cards/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)",["/_next/static/chunks/55ff3_next_dist_fda5dc28._.js","/_next/static/chunks/orchids-projects_rms-college-gadget-grade-cards_src_app_favicon_ico_mjs_78396de2._.js"],"default"]
+22:I["[project]/orchids-projects/rms-college-gadget-grade-cards/src/app/template.tsx [app-client] (ecmascript)",["/_next/static/chunks/55ff3_cadc8408._.js","/_next/static... [truncated]
+2026-03-04T07:53:19.038Z [console][warn] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+2026-03-04T07:53:19.092Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3000/
+2026-03-04T07:56:01.623Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:56:01.624Z [console][warn] [Fast Refresh] done in 112ms
+2026-03-04T07:56:01.966Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:56:02.014Z [console][warn] [Fast Refresh] done in 159ms
+2026-03-04T07:56:03.690Z [console][warn] [Fast Refresh] rebuilding
+2026-03-04T07:56:03.707Z [console][warn] [Fast Refresh] done in 121ms
+2026-03-04T07:53:19.093Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3000/
+2026-03-04T07:56:01.624Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:56:01.625Z [console][log] [Fast Refresh] done in 112ms
+2026-03-04T07:56:01.966Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:56:02.015Z [console][log] [Fast Refresh] done in 159ms
+2026-03-04T07:56:03.691Z [console][log] [Fast Refresh] rebuilding
+2026-03-04T07:56:03.707Z [console][log] [Fast Refresh] done in 121ms

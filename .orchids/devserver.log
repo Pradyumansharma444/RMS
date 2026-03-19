@@ -1,0 +1,139 @@
+$ next dev --turbopack
+   ▲ Next.js 15.5.9 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://172.20.0.28:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 893ms
+ ○ Compiling /dashboard/gadget-sheet ...
+ ✓ Compiled /dashboard/gadget-sheet in 5.5s
+ GET /dashboard/gadget-sheet 200 in 5825ms
+ ⚠ Cross origin request detected from 3000-c0800525-fa12-4296-be37-7b56a9dbd0c2.orchids.cloud to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ✓ Compiled /api/college/profile in 373ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 808ms
+ ✓ Compiled /api/metadata/[type] in 269ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 775ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1187ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1207ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1221ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1297ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 374ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 375ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 387ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 398ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 383ms
+ ○ Compiling /dashboard/atkt ...
+ ✓ Compiled /dashboard/atkt in 1180ms
+ GET /dashboard/atkt?_cb=1773314413203 200 in 1341ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 325ms
+ ✓ Compiled /api/marks/atkt in 166ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 557ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 569ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 367ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 339ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 343ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 326ms
+ GET /dashboard/gadget-sheet 200 in 126ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 337ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 476ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 476ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 492ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 484ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 505ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 413ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 422ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 441ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 345ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 371ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 759ms
+ GET /dashboard 200 in 809ms
+ ✓ Compiled /api/students in 145ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 355ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 382ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 519ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 353ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 393ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 344ms
+ GET /dashboard/atkt 200 in 78ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 352ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 332ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 338ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 326ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 358ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 342ms
+ ○ Compiling /api/marks/atkt-export ...
+ ✓ Compiled /api/marks/atkt-export in 624ms
+ GET /api/marks/atkt-export?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 1519ms
+ ✓ Compiled /api/marks/atkt-template in 117ms
+ GET /api/marks/atkt-template 200 in 390ms
+ GET /dashboard/gadget-sheet 200 in 72ms
+ GET /dashboard/gadget-sheet 200 in 66ms
+ GET /dashboard/atkt 200 in 69ms
+ ○ Compiling / ...
+ ✓ Compiled / in 700ms
+ GET /?_cb=1773314580335 200 in 853ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 581ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 461ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 501ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=9999&page=1 200 in 360ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 364ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 331ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&page=1&limit=10 200 in 340ms
+ GET /dashboard/gadget-sheet 200 in 58ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 298ms
+ GET /dashboard 200 in 76ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 494ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 493ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 489ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 326ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 498ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 440ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 439ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 451ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 453ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 389ms
+ GET /dashboard?_cb=1773314580335 200 in 138ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 414ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 414ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 381ms
+ ○ Compiling /api/generate/gadget-sheet ...
+ ✓ Compiled /api/generate/gadget-sheet in 550ms
+ POST /api/generate/gadget-sheet 200 in 3597ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 288ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 384ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 401ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 408ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 351ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 738ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 787ms
+ POST /api/generate/gadget-sheet 200 in 2621ms
+ GET /dashboard?_cb=1773315048849 200 in 121ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 390ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 450ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 450ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 455ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 401ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 410ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 406ms
+ GET /?_cb=1773315096469 200 in 75ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 299ms
+ GET /dashboard 200 in 66ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 393ms
+ GET /dashboard?_cb=1773315096469 200 in 59ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 394ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 304ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 283ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 346ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 349ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 314ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 347ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 362ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 315ms
