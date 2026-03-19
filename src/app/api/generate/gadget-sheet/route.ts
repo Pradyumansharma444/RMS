@@ -289,22 +289,31 @@ export async function POST(req: NextRequest) {
     };
 
     // ── Per-page student count logic ─────────────────────────────────────────
-    // Attempt to fit 4 students per page. Compute the max block height of any
-    // student. If fitting 4 of those would overflow a page, use 3 per page.
-    const headerReserveH = 130; // space reserved for the header on page 1
-    const footerReserveH = 90;  // space for signature block at the end
-    const usableH = PAGE_H - MARGIN * 2; // usable height per page (no header on subsequent pages)
+    // Dynamic: each student gets placed on the current page if there is physical
+    // space for it (curY - blockH >= MARGIN + sig_reserve).  The "4 per page /
+    // 3 per page" rule acts as a SOFT upper limit — but if the page still has
+    // enough room we allow one extra student rather than leaving a blank gap.
+    // This fills pages completely and avoids wasted white space.
+    const footerReserveH = 90;  // space reserved for signature block at the very end
     const studentBlockHeights = students.map(s => 18 + 14 + (s.subjects.length * 12) + 26); // hdr+colhdr+rows+footer
     const maxStudentH = Math.max(...studentBlockHeights, 1);
+    const usableH = PAGE_H - MARGIN * 2;
+    // Preferred cap: 4 if any four fit, else 3.  Used only as a hint.
     const studentsPerPage = (maxStudentH * 4) <= usableH ? 4 : 3;
     let studentsOnCurrentPage = 0;
 
     for (const s of students) {
-      const blockH = studentBlockHeights[students.indexOf(s)];
+      const sIdx = students.indexOf(s);
+      const blockH = studentBlockHeights[sIdx];
 
-      // Force new page when per-page limit reached or not enough space
-      const needNewPage = studentsOnCurrentPage >= studentsPerPage || (curY - blockH < MARGIN + footerReserveH);
-      if (studentsOnCurrentPage > 0 && needNewPage) {
+      // Start a new page when there is physically no space left for this student.
+      // The studentsPerPage cap is advisory: if space is still available we keep
+      // adding students to fill the page (no blank gaps), but we never exceed
+      // studentsPerPage+1 as a safety upper bound.
+      const noSpace = curY - blockH < MARGIN + footerReserveH;
+      const hardCapExceeded = studentsOnCurrentPage >= studentsPerPage + 1;
+
+      if (studentsOnCurrentPage > 0 && (noSpace || hardCapExceeded)) {
         page = pdfDoc.addPage([PAGE_W, PAGE_H]);
         curY = PAGE_H - MARGIN;
         curY = drawHeader(page, curY, false);
@@ -418,49 +427,80 @@ export async function POST(req: NextRequest) {
         const isAbsByGrade = ["AB", "ABS", "ABSENT"].includes(storedGradeUp) || /@ABS/i.test(storedGradeUp);
         const isAbsent = isAbsByGrade || isExtZero;
 
-        // ── PHASE 1B: Strict FAIL logic ─────────────────────────────────────
-        // If external marks are below passing threshold, force FAIL regardless of grade stored.
-        // External passing threshold is 40% of the external max marks.
-        // We detect "fail by external" if ext marks are critically low.
+        // ── PHASE 1B: Strict per-head 40% PASS/FAIL logic ───────────────────
+        // For two-head subjects (int + ext): BOTH heads must independently reach 40%.
+        // Subject max split: if we know int_marks and theo_marks, and max_marks is set,
+        // we derive each head's max by their proportion of total max.
+        // After grace is applied, use the updated (grace-included) marks for this check.
         let isForcedFail = false;
-        if (!isAbsent && sub.theo_marks != null && sub.theo_marks !== undefined) {
-          // For two-head subjects: check if external alone is below 40%
-          // Estimate external max as the portion of max_marks that is external
+
+        if (!isAbsent && !isCC) {
           const hasInt = sub.int_marks != null && sub.int_marks !== undefined;
-          if (hasInt) {
-            // Rough heuristic: if int is ~40% of max, ext max ≈ 60% of max
-            const estExtMax = displayMax - intNum;
-            const extPassMark = Math.ceil(estExtMax * 0.4);
-            if (extNum < extPassMark && extNum > 0) {
+          const hasExt = sub.theo_marks != null && sub.theo_marks !== undefined;
+
+          if (hasInt && hasExt) {
+            // Two-head subject: derive each head's maximum marks.
+            // Standard Mumbai University split: 40% internal / 60% external of total max.
+            // Use stored max_marks as total; compute proportional max per head.
+            const totalMax = displayMax || 50;
+            // Prefer a 40/60 split; if the stored int/ext values suggest a different ratio use that.
+            const rawSum = intNum + extNum;
+            let maxInt: number, maxExt: number;
+            if (rawSum > 0 && rawSum <= totalMax) {
+              // Proportional split based on actual component values, capped to totalMax
+              maxInt = Math.round(totalMax * (intNum / rawSum));
+              maxExt = totalMax - maxInt;
+            } else {
+              // Default 40/60 split
+              maxInt = Math.round(totalMax * 0.4);
+              maxExt = totalMax - maxInt;
+            }
+            const intPassMark = Math.ceil(maxInt * 0.4);
+            const extPassMark = Math.ceil(maxExt * 0.4);
+            // If either head fails independently → FAIL
+            if (intNum < intPassMark || extNum < extPassMark) {
               isForcedFail = true;
             }
+          } else if (!hasInt && !hasExt && !sub.prac_marks) {
+            // No component breakdown — use total obtained vs 40% of max
+            const passTotal = Math.ceil(displayMax * 0.4);
+            if (over < passTotal) isForcedFail = true;
+          } else {
+            // Single-head (only int or only ext/prac)
+            const passTotal = Math.ceil(displayMax * 0.4);
+            if (over < passTotal) isForcedFail = true;
           }
         }
 
-        // Strict external-zero fail: if external is 0 and has_int is true, that's absent/fail
-        if (!isAbsent && sub.theo_marks === 0 && sub.int_marks != null) {
+        // If is_pass is explicitly false and grace wasn't applied → still FAIL
+        const gracedThisSubject = totalGrace > 0;
+        if (!isAbsent && !isCC && sub.is_pass === false && !gracedThisSubject) {
           isForcedFail = true;
         }
 
         // Determine displayed grade:
         // - ABS: always "ABS"
-        // - Forced fail OR is_pass===false: always "F"
-        // - Grace applied: show actual computed grade (NOT "C*") — grade is already recalculated
-        //   in the apply route after grace. Strip any trailing * or @ from stored grade.
+        // - CC subject: show stored grade (pass by default)
+        // - Forced fail: "F"
+        // - Otherwise: stored grade with grace symbols stripped (they show in marks columns)
         let displayGrade: string;
         if (isAbsent) {
           displayGrade = "ABS";
-        } else if (isForcedFail || sub.is_pass === false) {
+        } else if (isCC) {
+          // CC subject always shows grade as stored (never forced-fail)
+          displayGrade = String(sub.grade || "-").replace(/[*@#]+$/, "").trim() || "-";
+        } else if (isForcedFail) {
           displayGrade = "F";
         } else {
-          // Strip grace suffix symbols (* and @) from stored grade — the +@ in marks columns
-          // already makes grace transparent. Grade column shows clean grade.
-          displayGrade = String(sub.grade || "-").replace(/[*@]+$/, "").trim() || "-";
+          // Strip grace suffix symbols (* @ #) — grace notation is in marks columns via +@
+          displayGrade = String(sub.grade || "-").replace(/[*@#]+$/, "").trim() || "-";
+          // Sanity: if stored grade is explicitly F and no grace applied, keep F
+          if (displayGrade === "F" && !gracedThisSubject) isForcedFail = true;
         }
 
         // Track whether this student should get SGPI/CGPA:
         // ABS, forced fail, explicit fail grade, or not passed → no SGPI/CGPA
-        if (isAbsent || isForcedFail || displayGrade === "F" || sub.is_pass === false) {
+        if (isAbsent || isForcedFail || displayGrade === "F") {
           studentHasAbsOrFail = true;
         }
 

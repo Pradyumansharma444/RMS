@@ -382,24 +382,24 @@ interface UploadRecord {
 
       setIsDeleting(true);
       try {
-        // Hard delete directly — no recycle bin step
-        const res = await fetch(`/api/marks/uploads?id=${deleteDialog.record.id}&permanent=1`, { method: "DELETE" });
+        // Soft-delete — move to Recycle Bin, NOT permanent delete
+        const res = await fetch(`/api/marks/uploads?id=${deleteDialog.record.id}`, { method: "DELETE" });
         const json = await res.json().catch(() => ({}));
         if (!res.ok) {
           throw new Error(json.error || "Delete failed");
         }
 
-        toast.success("Record permanently deleted");
+        toast.success("Moved to Recycle Bin — restore or permanently delete from Recycle Bin tab");
         const deletedId = deleteDialog.record!.id;
         setDeleteDialog({ open: false, record: null });
         setConfirmText("");
-        // Optimistically remove from UI immediately (single-click delete feel)
+        // Optimistically remove from main list immediately
         setUploads(prev => prev.filter(u => u.id !== deletedId));
-        // Then refresh from server in background
+        // Refresh both main list and bin
         fetchUploads();
-        if (showBin) fetchBin();
+        fetchBin();
       } catch (err: any) {
-        toast.error(err.message || "Failed to delete record");
+        toast.error(err.message || "Failed to move to recycle bin");
       } finally {
         setIsDeleting(false);
       }
@@ -1054,24 +1054,24 @@ interface UploadRecord {
                 <AlertCircle className="h-6 w-6 text-destructive" />
               </div>
               <div className="space-y-1">
-                <h2 className="text-xl font-bold text-destructive leading-tight tracking-tight">Permanent Record Deletion</h2>
-                <p className="text-xs text-muted-foreground font-medium uppercase tracking-widest">Exam History Purge</p>
+                <h2 className="text-xl font-bold text-destructive leading-tight tracking-tight">Move to Recycle Bin</h2>
+                <p className="text-xs text-muted-foreground font-medium uppercase tracking-widest">Can be restored or permanently deleted later</p>
               </div>
             </div>
 
             <div className="space-y-4">
               <div className="space-y-2 leading-relaxed">
                 <p className="text-sm text-muted-foreground font-medium">
-                  You are about to permanently delete the <span className="text-white font-bold decoration-destructive/30 underline-offset-4 underline">{deleteDialog.record?.exam_name}</span> record for <span className="text-white font-bold">{deleteDialog.record?.department}</span>:
+                  You are about to move the <span className="text-white font-bold decoration-destructive/30 underline-offset-4 underline">{deleteDialog.record?.exam_name}</span> record for <span className="text-white font-bold">{deleteDialog.record?.department}</span> to the Recycle Bin.
                 </p>
                 <div className="bg-muted/50 p-3 rounded-xl border border-white/5">
                   <p className="text-[11px] text-muted-foreground/80 font-medium leading-relaxed italic">
-                    All student marks, result calculations, grace marks, and PDF generation history associated with this upload will be permanently erased immediately. This cannot be recovered.
+                    The record will be moved to Recycle Bin. You can restore it or permanently delete all associated data (student marks, grace marks, PDF history) from the Recycle Bin tab.
                   </p>
                 </div>
-                <p className="text-sm font-black text-destructive flex items-center gap-2">
+                <p className="text-sm font-black text-amber-500 flex items-center gap-2">
                   <AlertCircle className="h-4 w-4" />
-                  This action cannot be undone.
+                  Data is preserved until permanently deleted from Recycle Bin.
                 </p>
               </div>
               
