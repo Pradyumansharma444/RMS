@@ -17,3 +17,79 @@
  GET /?_cb=1773944734467 200 in 4379ms
  GET /?_cb=1773944829248 200 in 101ms
  GET /?_cb=1773944867048 200 in 74ms
+ GET /?_cb=1773944924736 200 in 93ms
+ GET / 200 in 102ms
+ GET / 200 in 79ms
+ ⚠ Cross origin request detected from 3001-23941dbe-6a9f-450d-998a-69774ac738db.orchids.cloud to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1024ms
+ GET /login 200 in 1063ms
+ ○ Compiling /dashboard ...
+ POST /api/college/register 500 in 1476ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1487ms
+ ✓ Compiled /dashboard in 1547ms
+ GET /dashboard 200 in 1609ms
+ GET /dashboard 200 in 79ms
+ GET /dashboard 200 in 61ms
+ ✓ Compiled /api/marks/uploads in 173ms
+ ✓ Compiled /api/students in 139ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1014ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1494ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 1249ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 727ms
+ ○ Compiling /dashboard/gadget-sheet ...
+ ✓ Compiled /dashboard/gadget-sheet in 910ms
+ GET /dashboard/gadget-sheet 200 in 975ms
+ GET /dashboard/gadget-sheet 200 in 82ms
+ ✓ Compiled /api/metadata/[type] in 180ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1134ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1467ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1411ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1534ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 513ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 566ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 541ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 513ms
+ ○ Compiling /api/marks/upload ...
+ ✓ Compiled /api/marks/upload in 775ms
+[Header Detection] Found header at row null: Roll/Seat at 1, Name at 5
+[Column Mapping] {
+  roll: 1,
+  university_exam_seat_no: 2,
+  enrollment_no: 3,
+  abc: 4,
+  name: 5,
+  gender: 6,
+  cc_subject: 29
+}
+[Subject Detection] Found 11 subjects: [
+  'Programming with C (Major I)',
+  'Database Management Systems (Major II)',
+  'Programming with C + Database Management Systems (Major - III)',
+  'Combinational & Sequantial Design',
+  'Office Tools for Data Management',
+  'Foundation of Behavioural Skills (VEC)',
+  'Introduction to Communication Skills (AEC)',
+  'Environmental Management and Sustainable Development - I (OE - I)',
+  'Marketing Mix - I (OE - II)',
+  'Indian Knowledge System',
+  'CC Subject'
+]
+ POST /api/marks/upload 200 in 2037ms
+ ✓ Compiled /api/grace-marks/engine in 148ms
+ POST /api/grace-marks/engine 200 in 7274ms
+ ✓ Compiled /api/generate/gadget-sheet in 472ms
+Failed to set fetch cache https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png [Error: Failed to set Next.js data cache for https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png, items over 2MB can not be cached (3435001 bytes)]
+ POST /api/generate/gadget-sheet 200 in 3670ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 2700ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 469ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 718ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 752ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 919ms
+ GET /dashboard 200 in 176ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1170ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 832ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 952ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 1515ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 968ms
