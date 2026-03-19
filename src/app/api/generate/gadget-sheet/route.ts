@@ -288,12 +288,27 @@ export async function POST(req: NextRequest) {
       earn:  25,
     };
 
+    // ── Per-page student count logic ─────────────────────────────────────────
+    // Attempt to fit 4 students per page. Compute the max block height of any
+    // student. If fitting 4 of those would overflow a page, use 3 per page.
+    const headerReserveH = 130; // space reserved for the header on page 1
+    const footerReserveH = 90;  // space for signature block at the end
+    const usableH = PAGE_H - MARGIN * 2; // usable height per page (no header on subsequent pages)
+    const studentBlockHeights = students.map(s => 18 + 14 + (s.subjects.length * 12) + 26); // hdr+colhdr+rows+footer
+    const maxStudentH = Math.max(...studentBlockHeights, 1);
+    const studentsPerPage = (maxStudentH * 4) <= usableH ? 4 : 3;
+    let studentsOnCurrentPage = 0;
+
     for (const s of students) {
-      const blockH = 80 + (s.subjects.length * 12);
-      if (curY - blockH < MARGIN) {
+      const blockH = studentBlockHeights[students.indexOf(s)];
+
+      // Force new page when per-page limit reached or not enough space
+      const needNewPage = studentsOnCurrentPage >= studentsPerPage || (curY - blockH < MARGIN + footerReserveH);
+      if (studentsOnCurrentPage > 0 && needNewPage) {
         page = pdfDoc.addPage([PAGE_W, PAGE_H]);
         curY = PAGE_H - MARGIN;
         curY = drawHeader(page, curY, false);
+        studentsOnCurrentPage = 0;
       }
 
       // Student Header — Roll No left | Enrollment center | Name right (dynamic)
@@ -558,6 +573,7 @@ export async function POST(req: NextRequest) {
       }
 
       curY -= 26; // Space between students
+      studentsOnCurrentPage++;
     }
 
     // Final Signatures — placed immediately after last student with fixed padding
