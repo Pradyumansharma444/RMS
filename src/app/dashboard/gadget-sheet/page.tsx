@@ -380,25 +380,32 @@ interface UploadRecord {
         return;
       }
 
+      // Snapshot id & record before any state changes
+      const deletedId = deleteDialog.record.id;
+      const deletedRecord = deleteDialog.record;
+
       setIsDeleting(true);
+      // Close dialog and clear text immediately so the user can't re-submit
+      setDeleteDialog({ open: false, record: null });
+      setConfirmText("");
+
       try {
         // Soft-delete — move to Recycle Bin, NOT permanent delete
-        const res = await fetch(`/api/marks/uploads?id=${deleteDialog.record.id}`, { method: "DELETE" });
+        const res = await fetch(`/api/marks/uploads?id=${deletedId}`, { method: "DELETE" });
         const json = await res.json().catch(() => ({}));
         if (!res.ok) {
           throw new Error(json.error || "Delete failed");
         }
 
-        toast.success("Moved to Recycle Bin — restore or permanently delete from Recycle Bin tab");
-        const deletedId = deleteDialog.record!.id;
-        setDeleteDialog({ open: false, record: null });
-        setConfirmText("");
-        // Optimistically remove from main list immediately
+        // Optimistically remove from main list — do NOT call fetchUploads() here because
+        // the API response is cached (30 s) and would put the deleted item back.
         setUploads(prev => prev.filter(u => u.id !== deletedId));
-        // Refresh both main list and bin
-        fetchUploads();
+        toast.success("Moved to Recycle Bin — restore or permanently delete from Recycle Bin tab");
+        // Only refresh the bin to show the newly deleted item there
         fetchBin();
       } catch (err: any) {
+        // On failure re-open dialog so user can retry
+        setDeleteDialog({ open: true, record: deletedRecord });
         toast.error(err.message || "Failed to move to recycle bin");
       } finally {
         setIsDeleting(false);
@@ -1042,8 +1049,8 @@ interface UploadRecord {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={deleteDialog.open} onOpenChange={(open) => {
-        if (!open) {
-          setDeleteDialog(prev => ({ ...prev, open: false }));
+        if (!open && !isDeleting) {
+          setDeleteDialog({ open: false, record: null });
           setConfirmText("");
         }
       }}>

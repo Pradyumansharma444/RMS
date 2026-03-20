@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
     .neq("status", "deleted")
     .order("created_at", { ascending: false });
 
-  const CACHE = { headers: { "Cache-Control": "private, max-age=30, stale-while-revalidate=60" } };
+  const CACHE = { headers: { "Cache-Control": "no-store" } };
 
   if (!primary.error) {
     return NextResponse.json({ uploads: primary.data || [] }, CACHE);
@@ -85,7 +85,20 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ success: true });
   }
 
-  // Soft delete — dynamic: works with and without deleted_at column
+  // Soft delete — idempotent: if already deleted, return success immediately
+  const { data: existing } = await supabaseAdmin
+    .from("marks_uploads")
+    .select("id, deleted_at, status")
+    .eq("id", uploadId)
+    .single();
+
+  if (!existing) return NextResponse.json({ error: "Record not found" }, { status: 404 });
+
+  // Already in recycle bin — treat as success (idempotent)
+  if (existing.deleted_at !== null || existing.status === "deleted") {
+    return NextResponse.json({ success: true, already_deleted: true });
+  }
+
   const now = new Date().toISOString();
   const primary = await supabaseAdmin
     .from("marks_uploads")
