@@ -85,29 +85,27 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ success: true });
   }
 
-  // Soft delete — idempotent: if already deleted, return success immediately
-  let { data: existing, error: existingErr } = await supabaseAdmin
+  // Step 1: Verify the record exists using only the 'id' column (always safe)
+  const { data: existingRows, error: existErr } = await supabaseAdmin
     .from("marks_uploads")
-    .select("id, deleted_at, status")
-    .eq("id", uploadId)
-    .single();
+    .select("id, status")
+    .eq("id", uploadId);
 
-  // If the query failed (e.g. deleted_at column doesn't exist yet), fall back to basic select
-  if (existingErr || !existing) {
-    const fallbackResult = await supabaseAdmin
-      .from("marks_uploads")
-      .select("id, status")
-      .eq("id", uploadId)
-      .single();
-    if (!fallbackResult.data) return NextResponse.json({ error: "Record not found" }, { status: 404 });
-    existing = { ...fallbackResult.data, deleted_at: null };
+  if (existErr) {
+    return NextResponse.json({ error: existErr.message }, { status: 500 });
+  }
+  if (!existingRows || existingRows.length === 0) {
+    return NextResponse.json({ error: "Record not found" }, { status: 404 });
   }
 
-  // Already in recycle bin — treat as success (idempotent)
-  if (existing.deleted_at !== null || existing.status === "deleted") {
+  const existing = existingRows[0];
+
+  // Already soft-deleted — treat as success (idempotent)
+  if (existing.status === "deleted") {
     return NextResponse.json({ success: true, already_deleted: true });
   }
 
+  // Step 2: Try soft-delete with deleted_at + status
   const now = new Date().toISOString();
   const primary = await supabaseAdmin
     .from("marks_uploads")
@@ -116,6 +114,7 @@ export async function DELETE(req: NextRequest) {
 
   if (!primary.error) return NextResponse.json({ success: true });
 
+  // Step 3: Fallback — schema may not have deleted_at column, update only status
   const fallback = await supabaseAdmin
     .from("marks_uploads")
     .update({ status: "deleted" })
