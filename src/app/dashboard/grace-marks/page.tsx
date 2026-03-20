@@ -909,11 +909,18 @@ export default function GraceMarksPage() {
 
         for (let j = 0; j < entries.length; j++) {
           const h = entries[j];
-          const beforeInt  = h.int_marks ?? 0;
-          const beforeExt  = h.ext_marks ?? 0;
-          const graceInt   = h.grace_int ?? 0;
+          const graceInt   = h.grace_int ?? (h.original_marks ?? 0);
           const graceExt   = h.grace_ext ?? (h.grace_given ?? 0);
-          const graceTotal = (h.grace_total ?? ((graceInt + graceExt) || (h.grace_given ?? 0)));
+          const graceTotal = h.grace_total ?? (graceInt + graceExt);
+          // before_int / before_ext = marks before grace was applied (from history API)
+          const rawBeforeInt = h.before_int ?? null;
+          const rawBeforeExt = h.before_ext ?? null;
+          // Format as "7+@1" when grace was applied, else plain number
+          const isO229 = (h.ordinance_type || "").includes("229");
+          const intDisplay = isO229 ? "—"
+            : rawBeforeInt !== null ? (graceInt > 0 ? `${rawBeforeInt}+@${graceInt}` : String(rawBeforeInt)) : "—";
+          const extDisplay = isO229 ? "—"
+            : rawBeforeExt !== null ? (graceExt > 0 ? `${rawBeforeExt}+@${graceExt}` : String(rawBeforeExt)) : "—";
           const resultRaw  = (h.result || "").replace(/\s+/g, "").toUpperCase();
           const resultDisplay = resultRaw === "PASS" ? "P A S S" : resultRaw === "FAIL" ? "FAIL" : (h.result || "–");
           const subjectClean = (h.subject_name || "-").replace(/[*@★D]$/, "").trim();
@@ -922,11 +929,11 @@ export default function GraceMarksPage() {
             j === 0 ? (first.roll_number || "–") : "",
             j === 0 ? (first.student_name || "–") : "",
             subjectClean,
-            beforeInt,
-            beforeExt,
-            graceInt,
-            graceExt,
-            graceTotal,
+            intDisplay,
+            extDisplay,
+            graceInt || "—",
+            graceExt || "—",
+            graceTotal || "—",
             h.ordinance_type || "O.5042-A",
             j === 0 ? resultDisplay : "",
           ]);
@@ -2144,8 +2151,9 @@ export default function GraceMarksPage() {
                           <TableHead className="w-[50px] py-4 text-center pl-4">#</TableHead>
                           <TableHead className="py-4 text-center text-muted-foreground">Roll No</TableHead>
                           <TableHead className="py-4 text-muted-foreground">Student Name</TableHead>
-                          <TableHead className="py-4 text-muted-foreground">Subject</TableHead>
-                          <TableHead className="py-4 text-center text-muted-foreground">Original Marks</TableHead>
+                          <TableHead className="py-4 pl-6 text-muted-foreground">Subject</TableHead>
+                          <TableHead className="py-4 text-center text-muted-foreground">Int</TableHead>
+                          <TableHead className="py-4 text-center text-muted-foreground">Ext</TableHead>
                           <TableHead className="py-4 text-center text-muted-foreground">Grace Added (@)</TableHead>
                           <TableHead className="py-4 text-center text-muted-foreground pr-6">Ordinance Type</TableHead>
                         </TableRow>
@@ -2161,6 +2169,18 @@ export default function GraceMarksPage() {
                             otype === "O.229"   ? "bg-emerald-500/10 text-emerald-700 border-emerald-500/25" :
                             otype === "O.5044-A" ? "bg-purple-500/10 text-purple-700 border-purple-500/25" :
                             "bg-muted text-muted-foreground border-border/40";
+                          const intGrace = h.grace_int ?? (h.original_marks ?? 0);
+                          const extGrace = h.grace_ext ?? (h.grace_given ?? 0);
+                          const beforeInt = h.before_int;
+                          const beforeExt = h.before_ext;
+                          const intDisplay = otype === "O.229" ? "—"
+                            : beforeInt !== null && beforeInt !== undefined
+                              ? (intGrace > 0 ? `${beforeInt}+@${intGrace}` : String(beforeInt))
+                              : "—";
+                          const extDisplay = otype === "O.229" ? "—"
+                            : beforeExt !== null && beforeExt !== undefined
+                              ? (extGrace > 0 ? `${beforeExt}+@${extGrace}` : String(beforeExt))
+                              : "—";
                           return (
                           <TableRow key={h.mark_id ? `${h.mark_id}-${idx}` : idx} className="group hover:bg-muted/20 transition-all border-border/40">
                             <TableCell className="py-3 text-center pl-4 text-xs font-bold text-muted-foreground">{globalIdx}</TableCell>
@@ -2169,12 +2189,19 @@ export default function GraceMarksPage() {
                               <p className="font-bold text-sm">{h.student_name || "—"}</p>
                               {h.department && <p className="text-[10px] text-muted-foreground font-medium">{h.department}</p>}
                             </TableCell>
-                            <TableCell className="py-3">
+                            <TableCell className="py-3 pl-6">
                               <p className="text-xs font-bold truncate max-w-[180px]">{(h.subject_name || "—").replace(/[*@★D]$/, "").trim()}</p>
                               {h.ordinance_note && <p className="text-[10px] text-emerald-600 font-bold">{h.ordinance_note}</p>}
                             </TableCell>
                             <TableCell className="py-3 text-center">
-                              <span className="font-black text-sm tabular-nums">{h.original_marks ?? "—"}</span>
+                              {intDisplay !== "—" ? (
+                                <span className={`font-black text-sm tabular-nums ${intGrace > 0 ? "text-emerald-600" : ""}`}>{intDisplay}</span>
+                              ) : <span className="text-xs text-muted-foreground">—</span>}
+                            </TableCell>
+                            <TableCell className="py-3 text-center">
+                              {extDisplay !== "—" ? (
+                                <span className={`font-black text-sm tabular-nums ${extGrace > 0 ? "text-emerald-600" : ""}`}>{extDisplay}</span>
+                              ) : <span className="text-xs text-muted-foreground">—</span>}
                             </TableCell>
                             <TableCell className="py-3 text-center">
                               {otype === "O.229" ? (

@@ -838,7 +838,7 @@ interface UploadRecord {
                             size="icon"
                             title="Preview gadget sheet"
                             className="h-8 w-8 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-                            onClick={() => generatePDF(u.id, u.department, u.year, "view")}
+                            onClick={() => generatePDF(u.id, u.department, u.year, "view", "", true)}
                             disabled={!!pdfLoading[`${u.id}-view`] || !!pdfLoading[`${u.id}-download`] || !!pdfLoading[`${u.id}-regen`]}
                           >
                             {pdfLoading[`${u.id}-view`]
@@ -850,7 +850,7 @@ interface UploadRecord {
                             size="icon"
                             title="Download gadget sheet"
                             className="h-8 w-8 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-                            onClick={() => generatePDF(u.id, u.department, u.year, "download")}
+                            onClick={() => generatePDF(u.id, u.department, u.year, "download", "", true)}
                             disabled={!!pdfLoading[`${u.id}-view`] || !!pdfLoading[`${u.id}-download`] || !!pdfLoading[`${u.id}-regen`]}
                           >
                             {pdfLoading[`${u.id}-download`]
