@@ -113,3 +113,127 @@ Failed to set fetch cache https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/ob
  GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 564ms
  GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 379ms
  GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 427ms
+ GET /?_cb=1774007152196 200 in 118ms
+ GET /?_cb=1774006578122 200 in 126ms
+ GET /?_cb=1774007152196 200 in 140ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 396ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 499ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 365ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 417ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 350ms
+ GET /dashboard 200 in 78ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 403ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 439ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 372ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 422ms
+ ○ Compiling /dashboard/atkt ...
+ ✓ Compiled /dashboard/atkt in 1168ms
+ GET /dashboard/atkt 200 in 1436ms
+ GET /dashboard/gadget-sheet 200 in 73ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 458ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 468ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 483ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 397ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 381ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 418ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 313ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 432ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 440ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 401ms
+ DELETE /api/marks/uploads?id=f658fdce-3f67-4553-9529-27ffad1e6b40 200 in 383ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&bin=1 200 in 391ms
+ DELETE /api/marks/uploads?id=f658fdce-3f67-4553-9529-27ffad1e6b40&permanent=1 200 in 371ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&bin=1 200 in 389ms
+[Header Detection] Found header at row null: Roll/Seat at 1, Name at 5
+[Column Mapping] {
+  roll: 1,
+  university_exam_seat_no: 2,
+  enrollment_no: 3,
+  abc: 4,
+  name: 5,
+  gender: 6,
+  cc_subject: 29
+}
+[Subject Detection] Found 11 subjects: [
+  'Programming with C (Major I)',
+  'Database Management Systems (Major II)',
+  'Programming with C + Database Management Systems (Major - III)',
+  'Combinational & Sequantial Design',
+  'Office Tools for Data Management',
+  'Foundation of Behavioural Skills (VEC)',
+  'Introduction to Communication Skills (AEC)',
+  'Environmental Management and Sustainable Development - I (OE - I)',
+  'Marketing Mix - I (OE - II)',
+  'Indian Knowledge System',
+  'CC Subject'
+]
+ POST /api/marks/upload 200 in 753ms
+ POST /api/grace-marks/engine 200 in 2821ms
+ POST /api/generate/gadget-sheet 200 in 2725ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 389ms
+ GET /?_cb=1774007152196 200 in 124ms
+ GET /?_cb=1774007152196 200 in 111ms
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 403ms
+ GET /dashboard 200 in 63ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 432ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 488ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 340ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 346ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 404ms
+ GET /dashboard/gadget-sheet 200 in 76ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 448ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 400ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 402ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 421ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 407ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 355ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 409ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 348ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 372ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 321ms
+ DELETE /api/marks/uploads?id=fe6c86b1-857c-4d74-a184-ad3a8fa36901 200 in 390ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&bin=1 200 in 413ms
+ DELETE /api/marks/uploads?id=fe6c86b1-857c-4d74-a184-ad3a8fa36901&permanent=1 200 in 361ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&bin=1 200 in 350ms
+[Header Detection] Found header at row null: Roll/Seat at 1, Name at 5
+[Column Mapping] {
+  roll: 1,
+  university_exam_seat_no: 2,
+  enrollment_no: 3,
+  abc: 4,
+  name: 5,
+  gender: 6,
+  cc_subject: 29
+}
+[Subject Detection] Found 11 subjects: [
+  'Programming with C (Major I)',
+  'Database Management Systems (Major II)',
+  'Programming with C + Database Management Systems (Major - III)',
+  'Combinational & Sequantial Design',
+  'Office Tools for Data Management',
+  'Foundation of Behavioural Skills (VEC)',
+  'Introduction to Communication Skills (AEC)',
+  'Environmental Management and Sustainable Development - I (OE - I)',
+  'Marketing Mix - I (OE - II)',
+  'Indian Knowledge System',
+  'CC Subject'
+]
+ POST /api/marks/upload 200 in 700ms
+ POST /api/grace-marks/engine 200 in 2420ms
+ POST /api/generate/gadget-sheet 200 in 2845ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 395ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 428ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 410ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 494ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 381ms
+ GET /dashboard/grace-marks 200 in 327ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 672ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 369ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 372ms
+ GET /api/marks?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&upload_id=a9f0effa-5605-49c4-a40b-9bbddd9e7777 200 in 405ms
+ GET /api/grace-marks/ordinance-search?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&upload_id=a9f0effa-5605-49c4-a40b-9bbddd9e7777 200 in 382ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 638ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 675ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 486ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 394ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 453ms
