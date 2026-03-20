@@ -94,7 +94,7 @@ interface UploadRecord {
     const [examType, setExamType] = useState("");
     const [applyOrdinance, setApplyOrdinance] = useState<"no" | "yes">("no");
     const [gracingStatus, setGracingStatus] = useState("");
-    const [graceResult, setGraceResult] = useState<{ graced: number; o5042: number; o5045: number } | null>(null);
+    const [graceResult, setGraceResult] = useState<{ graced: number; o5042: number; o5045: number; o229: number; o5044: number; o5043: number } | null>(null);
     const [uploading, setUploading] = useState(false);
     const [deleteDialog, setDeleteDialog] = useState<{ open: boolean; record: UploadRecord | null }>({ open: false, record: null });
     const [confirmText, setConfirmText] = useState("");
@@ -231,8 +231,8 @@ interface UploadRecord {
         bc = new BroadcastChannel("rms_grace_sync");
         bc.onmessage = (ev) => {
           if (ev.data?.type === "grace_applied") {
-            const { graced, o5042, o5045, upload_id } = ev.data;
-            setGraceResult({ graced, o5042, o5045 });
+            const { graced, o5042, o5045, o229, o5044, o5043, upload_id } = ev.data;
+            setGraceResult({ graced, o5042: o5042 ?? 0, o5045: o5045 ?? 0, o229: o229 ?? 0, o5044: o5044 ?? 0, o5043: o5043 ?? 0 });
             toast.success(`Grace synced from Ordinance tab — ${graced} student(s) updated`);
             // Refresh uploads so PDF will reflect updated marks
             fetchUploads();
@@ -269,7 +269,7 @@ interface UploadRecord {
 
       // If ordinance is enabled, run the gracing engine before PDF generation
       if (applyOrdinance === "yes") {
-        setGracingStatus("Running Gracing Engine (O.5042-A / O.5045-A)…");
+        setGracingStatus("Running Gracing Engine (O.229 / O.5042-A / O.5044-A / O.5045-A / O.5043-A)…");
         try {
           const graceRes = await fetch("/api/grace-marks/engine", {
             method: "POST",
@@ -278,9 +278,23 @@ interface UploadRecord {
           });
           const graceJson = await graceRes.json();
           if (graceRes.ok) {
-            const g = { graced: graceJson.graced, o5042: graceJson.o5042_count, o5045: graceJson.o5045_count };
+            const g = {
+              graced:  graceJson.graced,
+              o5042:  graceJson.o5042_count ?? 0,
+              o5045:  graceJson.o5045_count ?? 0,
+              o229:   graceJson.o229_count  ?? 0,
+              o5044:  graceJson.o5044_count ?? 0,
+              o5043:  graceJson.o5043_count ?? 0,
+            };
             setGraceResult(g);
-            toast.success(`Ordinance applied — ${g.graced} student(s) graced (${g.o5042} O.5042-A, ${g.o5045} O.5045-A)`);
+            const parts = [
+              g.o229   > 0 && `${g.o229} O.229`,
+              g.o5042  > 0 && `${g.o5042} O.5042-A`,
+              g.o5044  > 0 && `${g.o5044} O.5044-A`,
+              g.o5045  > 0 && `${g.o5045} O.5045-A`,
+              g.o5043  > 0 && `${g.o5043} O.5043-A`,
+            ].filter(Boolean).join(", ");
+            toast.success(`Ordinance applied — ${g.graced} student(s) graced${parts ? ` (${parts})` : ""}`);
             // Broadcast to Ordinance tab
             try { new BroadcastChannel("rms_grace_sync").postMessage({ type: "grace_applied_from_gadget", ...g, upload_id: json.upload_id }); } catch {}
           } else {
@@ -554,12 +568,12 @@ interface UploadRecord {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="no">No — Generate as-is</SelectItem>
-                        <SelectItem value="yes">Yes — Auto-apply O.5042-A &amp; O.5045-A</SelectItem>
+                        <SelectItem value="yes">Yes — Auto-apply All 5 Ordinance Rules</SelectItem>
                       </SelectContent>
                     </Select>
                     {applyOrdinance === "yes" && (
                       <p className="text-[10px] text-amber-600 dark:text-amber-400 font-medium leading-relaxed">
-                        Passing grace (O.5042-A) and condonation (O.5045-A) will be auto-applied before generating. Grace symbols (* and @) will appear in the sheet.
+                        All 5 rules applied in sequence: O.229 (extracurricular), O.5042-A (passing grace), O.5044-A (A→A+), O.5045-A (condonation), O.5043-A (A+→O). Grace symbols will appear in the sheet.
                       </p>
                     )}
                   </div>
@@ -658,15 +672,22 @@ interface UploadRecord {
               </p>
             )}
             {graceResult && !gracingStatus && (
-              <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/25 rounded-lg px-3 py-2">
-                <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                <p className="text-[11px] font-bold text-amber-700 dark:text-amber-400">
-                  Ordinance applied — {graceResult.graced} student(s) graced
-                  {graceResult.o5042 > 0 && <span className="ml-1">({graceResult.o5042} O.5042-A*</span>}
-                  {graceResult.o5045 > 0 && <span>{graceResult.o5042 > 0 ? ", " : " ("}{graceResult.o5045} O.5045-A@</span>}
-                  {(graceResult.o5042 > 0 || graceResult.o5045 > 0) && <span>)</span>}
-                </p>
-                <button onClick={() => setGraceResult(null)} className="ml-auto text-amber-500 hover:text-amber-700">
+              <div className="flex items-start gap-2 bg-amber-500/10 border border-amber-500/25 rounded-lg px-3 py-2">
+                <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0 mt-0.5" />
+                <div className="flex-1 space-y-0.5">
+                  <p className="text-[11px] font-bold text-amber-700 dark:text-amber-400">
+                    Ordinance applied — {graceResult.graced} student(s) graced
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {graceResult.o229  > 0 && <span className="text-[10px] bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded px-1.5 py-0.5 font-semibold">O.229 × {graceResult.o229}</span>}
+                    {graceResult.o5042 > 0 && <span className="text-[10px] bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded px-1.5 py-0.5 font-semibold">O.5042-A × {graceResult.o5042}</span>}
+                    {graceResult.o5044 > 0 && <span className="text-[10px] bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded px-1.5 py-0.5 font-semibold">O.5044-A × {graceResult.o5044}</span>}
+                    {graceResult.o5045 > 0 && <span className="text-[10px] bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded px-1.5 py-0.5 font-semibold">O.5045-A × {graceResult.o5045}</span>}
+                    {graceResult.o5043 > 0 && <span className="text-[10px] bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded px-1.5 py-0.5 font-semibold">O.5043-A × {graceResult.o5043}</span>}
+                    {graceResult.graced === 0 && <span className="text-[10px] text-amber-600/70 italic">No students required gracing</span>}
+                  </div>
+                </div>
+                <button onClick={() => setGraceResult(null)} className="ml-auto text-amber-500 hover:text-amber-700 shrink-0">
                   <X className="h-3 w-3" />
                 </button>
               </div>

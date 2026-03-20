@@ -573,18 +573,21 @@ export async function POST(req: NextRequest) {
   }
 
   const graced = results.filter(r => (r.grace_applied?.length ?? 0) > 0);
-  const o5042count = graced.filter(r => r.grace_rule === "O.5042-A").length;
-  const o5045count = graced.filter(r => r.grace_rule === "O.5045-A").length;
-  const o229count = graced.filter(r => r.grace_rule === "O.229").length;
+
+  // Count per rule — a student may have multiple rules applied; count each rule occurrence
+  const allRules = results.flatMap(r => r.grace_applied?.map((g: any) => g.rule) ?? []);
+  const countRule = (rule: string) => allRules.filter((r: string) => r === rule).length;
 
   return NextResponse.json({
     success: true,
     dry_run,
     total: results.length,
     graced: graced.length,
-    o5042_count: o5042count,
-    o5045_count: o5045count,
-    o229_count: o229count,
+    o5042_count: countRule("O.5042-A"),
+    o5045_count: countRule("O.5045-A"),
+    o229_count:  countRule("O.229"),
+    o5044_count: countRule("O.5044-A"),
+    o5043_count: countRule("O.5043-A"),
     students: results,
   });
 }
