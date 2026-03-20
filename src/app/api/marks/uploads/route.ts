@@ -86,13 +86,22 @@ export async function DELETE(req: NextRequest) {
   }
 
   // Soft delete — idempotent: if already deleted, return success immediately
-  const { data: existing } = await supabaseAdmin
+  let { data: existing, error: existingErr } = await supabaseAdmin
     .from("marks_uploads")
     .select("id, deleted_at, status")
     .eq("id", uploadId)
     .single();
 
-  if (!existing) return NextResponse.json({ error: "Record not found" }, { status: 404 });
+  // If the query failed (e.g. deleted_at column doesn't exist yet), fall back to basic select
+  if (existingErr || !existing) {
+    const fallbackResult = await supabaseAdmin
+      .from("marks_uploads")
+      .select("id, status")
+      .eq("id", uploadId)
+      .single();
+    if (!fallbackResult.data) return NextResponse.json({ error: "Record not found" }, { status: 404 });
+    existing = { ...fallbackResult.data, deleted_at: null };
+  }
 
   // Already in recycle bin — treat as success (idempotent)
   if (existing.deleted_at !== null || existing.status === "deleted") {
