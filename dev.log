@@ -11,3 +11,81 @@
 
  ✓ Starting...
  ✓ Ready in 942ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.4s
+ GET /?_cb=1774006429400 200 in 4815ms
+ GET /?_cb=1774006578122 200 in 131ms
+ GET /?_cb=1774006578122 200 in 132ms
+ GET /?_cb=1774006578122 200 in 120ms
+ GET /?_cb=1774006578122 200 in 114ms
+ ⚠ Cross origin request detected from 3000-5cb0c52f-b550-489b-a8c4-c7723705cff8.orchids.cloud to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1224ms
+ GET /login 200 in 1287ms
+ ○ Compiling /dashboard ...
+ GET /api/college/profile?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 958ms
+ POST /api/college/register 500 in 586ms
+ ✓ Compiled /dashboard in 1740ms
+ GET /dashboard 200 in 1802ms
+ GET /dashboard 200 in 102ms
+ GET /dashboard 200 in 85ms
+ ✓ Compiled /api/marks/uploads in 464ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 684ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 605ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 636ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 351ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 439ms
+ ○ Compiling /dashboard/gadget-sheet ...
+ ✓ Compiled /dashboard/gadget-sheet in 1040ms
+ GET /dashboard/gadget-sheet 200 in 1121ms
+ ✓ Compiled /api/metadata/[type] in 214ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 415ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 942ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 949ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1220ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 1224ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 365ms
+ GET /api/metadata/semesters?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 405ms
+ GET /api/metadata/departments?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 400ms
+ GET /api/metadata/years?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 336ms
+ GET /api/metadata/courses?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 394ms
+ DELETE /api/marks/uploads?id=f8b19344-0673-4890-8413-24b82def0817 200 in 452ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&bin=1 200 in 424ms
+ DELETE /api/marks/uploads?id=f8b19344-0673-4890-8413-24b82def0817&permanent=1 200 in 391ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&bin=1 200 in 368ms
+ DELETE /api/marks/uploads?id=d2b60a0d-62cd-4c79-a2ea-268e60b74caa&permanent=1 200 in 691ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&bin=1 200 in 359ms
+ ○ Compiling /api/marks/upload ...
+ ✓ Compiled /api/marks/upload in 797ms
+[Header Detection] Found header at row null: Roll/Seat at 1, Name at 5
+[Column Mapping] {
+  roll: 1,
+  university_exam_seat_no: 2,
+  enrollment_no: 3,
+  abc: 4,
+  name: 5,
+  gender: 6,
+  cc_subject: 29
+}
+[Subject Detection] Found 11 subjects: [
+  'Programming with C (Major I)',
+  'Database Management Systems (Major II)',
+  'Programming with C + Database Management Systems (Major - III)',
+  'Combinational & Sequantial Design',
+  'Office Tools for Data Management',
+  'Foundation of Behavioural Skills (VEC)',
+  'Introduction to Communication Skills (AEC)',
+  'Environmental Management and Sustainable Development - I (OE - I)',
+  'Marketing Mix - I (OE - II)',
+  'Indian Knowledge System',
+  'CC Subject'
+]
+ POST /api/marks/upload 200 in 1609ms
+ ✓ Compiled /api/grace-marks/engine in 211ms
+ POST /api/grace-marks/engine 200 in 2469ms
+ ○ Compiling /api/generate/gadget-sheet ...
+ ✓ Compiled /api/generate/gadget-sheet in 606ms
+Failed to set fetch cache https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png [Error: Failed to set Next.js data cache for https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png, items over 2MB can not be cached (3435001 bytes)]
+ POST /api/generate/gadget-sheet 200 in 3550ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 377ms
