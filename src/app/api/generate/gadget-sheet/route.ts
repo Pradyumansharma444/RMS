@@ -171,17 +171,23 @@ export async function POST(req: NextRequest) {
 
     const [{ data: marksData, error }, graceRes, ...rawImgResults] = await Promise.all([
       query,
-      supabaseAdmin.from("grace_marks").select("mark_id,subject_name,original_marks,grace_given").eq("college_id", college.id),
+      supabaseAdmin.from("grace_marks").select("mark_id,subject_name,original_marks,grace_given,final_marks").eq("college_id", college.id),
       ...imageUrls.map(url => url ? fetchImageBytes(url) : Promise.resolve(null)),
     ]);
 
-    // Build grace lookup: mark_id|subject_name → { int_grace, ext_grace }
+    // Build grace lookup: mark_id|subject_name → { int_grace, ext_grace, total_grace }
     // original_marks = grace on internal component, grace_given = grace on external component
-    type GraceLookup = { int_grace: number; ext_grace: number };
+    // When engine applies grace it puts everything into ext_grace (grace_given).
+    // When manual apply route is used it may split across int/ext.
+    // total_grace (final_marks) is the authoritative sum — use it as fallback.
+    type GraceLookup = { int_grace: number; ext_grace: number; total_grace: number };
     const graceLookup = new Map<string, GraceLookup>();
     for (const g of (graceRes.data || [])) {
       const key = `${g.mark_id}|${(g.subject_name || "").trim().toLowerCase()}`;
-      graceLookup.set(key, { int_grace: g.original_marks || 0, ext_grace: g.grace_given || 0 });
+      const intG = Number(g.original_marks) || 0;
+      const extG = Number(g.grace_given) || 0;
+      const totalG = Number(g.final_marks) || (intG + extG);
+      graceLookup.set(key, { int_grace: intG, ext_grace: extG, total_grace: totalG });
     }
 
     if (error || !marksData?.length) return NextResponse.json({ error: "No marks data found" }, { status: 404 });
@@ -418,16 +424,21 @@ export async function POST(req: NextRequest) {
         const isCC = sub.is_cc || sub.subject_code === "CC Subject";
 
         // Check if grace was applied to this subject
-        // The engine stores grace_marks with mark_id = student.id (student_marks.id)
         const graceKey = `${s.id}|${sub.subject_name.trim().toLowerCase()}`;
         const graceEntry = graceLookup.get(graceKey);
-        const intGrace = graceEntry?.int_grace ?? 0;
-        const extGrace = graceEntry?.ext_grace ?? 0;
-        const totalGrace = intGrace + extGrace;
+        const intGrace   = graceEntry?.int_grace   ?? 0;
+        const extGrace   = graceEntry?.ext_grace   ?? 0;
+        const totalGrace = graceEntry?.total_grace ?? (intGrace + extGrace);
 
-        // ── PHASE 1A: Grace marks display format ────────────────────────────
-        // Grace is baked into int_marks / theo_marks in DB.
-        // Show as "original+@grace" e.g. "7+@1" so grace is visible but separated.
+        // ── Grace marks display format ───────────────────────────────────────
+        // Grace is already baked into DB marks. Show as "original+@grace" e.g. "7+@1".
+        //
+        // The engine puts all grace into ext_grace (grace_given column).
+        // The apply route may split across int/ext.
+        //
+        // For Int column: show grace only if intGrace > 0
+        // For Ext column: show grace only if extGrace > 0
+        // For Overall:    always show totalGrace when > 0, regardless of which head it's on
 
         // Internal marks display
         const int = sub.int_marks != null
@@ -439,7 +450,7 @@ export async function POST(req: NextRequest) {
           ? (extGrace > 0 ? `${extNum - extGrace}+@${extGrace}` : String(extNum))
           : "-";
 
-        // Overall: show originalTotal+@totalGrace so grace is visible
+        // Overall: always show +@ when any grace was applied (even if split across heads)
         const overDisplay = totalGrace > 0 ? `${over - totalGrace}+@${totalGrace}` : String(over);
 
         const credits = sub.credits ?? 2;
