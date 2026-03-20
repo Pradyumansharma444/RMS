@@ -574,6 +574,14 @@ export async function POST(req: NextRequest) {
 
   const graced = results.filter(r => (r.grace_applied?.length ?? 0) > 0);
 
+  // Clear cached PDF so the next generation picks up the +@ grace notation
+  if (!dry_run && graced.length > 0) {
+    await supabaseAdmin
+      .from("marks_uploads")
+      .update({ pdf_url: null })
+      .eq("id", upload_id);
+  }
+
   // Count per rule — a student may have multiple rules applied; count each rule occurrence
   const allRules = results.flatMap(r => r.grace_applied?.map((g: any) => g.rule) ?? []);
   const countRule = (rule: string) => allRules.filter((r: string) => r === rule).length;

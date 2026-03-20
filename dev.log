@@ -89,3 +89,27 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
 Failed to set fetch cache https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png [Error: Failed to set Next.js data cache for https://vylqoyiidvxrrbraumih.supabase.co/storage/v1/object/public/college-assets/179c6fa9-4adc-4b2a-9564-2ba4b8b12451/university_stamp_url.png, items over 2MB can not be cached (3435001 bytes)]
  POST /api/generate/gadget-sheet 200 in 3550ms
  GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 377ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 542ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 675ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 415ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 359ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 434ms
+ ○ Compiling /dashboard/grace-marks ...
+ ✓ Compiled /dashboard/grace-marks in 2.5s
+ GET /dashboard/grace-marks 200 in 2787ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 415ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 358ms
+ ✓ Compiled /api/marks in 163ms
+ GET /api/marks?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&upload_id=f658fdce-3f67-4553-9529-27ffad1e6b40 200 in 553ms
+ ✓ Compiled /api/grace-marks/ordinance-search in 147ms
+ GET /api/grace-marks/ordinance-search?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&upload_id=f658fdce-3f67-4553-9529-27ffad1e6b40 200 in 565ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 772ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 800ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 920ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 479ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 468ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 452ms
+ GET /api/students?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 396ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 564ms
+ GET /api/marks/uploads?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1 200 in 379ms
+ GET /api/marks/atkt?uid=8t3UNCJk4CdRoBRXGAuqbgNUIvh1&limit=1 200 in 427ms

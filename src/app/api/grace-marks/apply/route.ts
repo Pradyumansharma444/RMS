@@ -248,6 +248,19 @@ export async function POST(req: NextRequest) {
 
   await Promise.all(writePromises);
 
+  // Clear cached PDFs for all affected uploads so next generation picks up +@ grace notation
+  const affectedUploadIds = [
+    ...new Set(
+      [...(allRows || [])].map((r: any) => r.upload_id).filter(Boolean)
+    )
+  ];
+  if (affectedUploadIds.length > 0) {
+    await supabaseAdmin
+      .from("marks_uploads")
+      .update({ pdf_url: null })
+      .in("id", affectedUploadIds);
+  }
+
   return NextResponse.json({
     success: true,
     applied_count: results.length,
