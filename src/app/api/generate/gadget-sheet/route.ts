@@ -240,7 +240,8 @@ export async function POST(req: NextRequest) {
     const MARGIN = 30;
 
     // ── Layout constants ──────────────────────────────────────────────────────
-    const STUDENTS_PER_PAGE = 4;   // always 4 students per page
+    const STUDENTS_FIRST_PAGE = 3;  // 3 students on page 1 (banner takes space)
+    const STUDENTS_PER_PAGE   = 4;  // 4 students on all subsequent pages
     const HDR_H_BASE     = 18;
     const COL_HDR_H_BASE = 14;
     const FOOTER_H_BASE  = 18;
@@ -252,10 +253,13 @@ export async function POST(req: NextRequest) {
     const firstPageUsable = PAGE_H - MARGIN * 2 - BANNER_H_EST;
     const otherPageUsable = PAGE_H - MARGIN * 2;
 
-    // Group students into pages of STUDENTS_PER_PAGE
+    // Group students: first page gets 3, remaining pages get 4
     const pages: StudentMark[][] = [];
-    for (let i = 0; i < students.length; i += STUDENTS_PER_PAGE) {
-      pages.push(students.slice(i, i + STUDENTS_PER_PAGE));
+    if (students.length > 0) {
+      pages.push(students.slice(0, STUDENTS_FIRST_PAGE));
+      for (let i = STUDENTS_FIRST_PAGE; i < students.length; i += STUDENTS_PER_PAGE) {
+        pages.push(students.slice(i, i + STUDENTS_PER_PAGE));
+      }
     }
 
     // For each page group, compute a shared ROW_H that makes all 4 students fit
@@ -422,19 +426,21 @@ export async function POST(req: NextRequest) {
         const totalGrace = intGrace + extGrace;
 
         // ── PHASE 1A: Grace marks display format ────────────────────────────
-        // Grace is already baked into int_marks / theo_marks in DB.
-        // Show the final combined marks only (no +@ notation visible on sheet).
+        // Grace is baked into int_marks / theo_marks in DB.
+        // Show as "original+@grace" e.g. "7+@1" so grace is visible but separated.
 
-        // Internal marks display — show combined total
-        const int = sub.int_marks != null ? String(intNum) : "-";
-
-        // External marks display — show combined total
-        const ext = sub.theo_marks != null || canUseDerivedExt || sub.prac_marks != null
-          ? String(extNum)
+        // Internal marks display
+        const int = sub.int_marks != null
+          ? (intGrace > 0 ? `${intNum - intGrace}+@${intGrace}` : String(intNum))
           : "-";
 
-        // Overall — show combined total
-        const overDisplay = String(over);
+        // External marks display
+        const ext = sub.theo_marks != null || canUseDerivedExt || sub.prac_marks != null
+          ? (extGrace > 0 ? `${extNum - extGrace}+@${extGrace}` : String(extNum))
+          : "-";
+
+        // Overall: show originalTotal+@totalGrace so grace is visible
+        const overDisplay = totalGrace > 0 ? `${over - totalGrace}+@${totalGrace}` : String(over);
 
         const credits = sub.credits ?? 2;
         const earn = sub.earned_credits ?? (sub.is_pass ? credits : 0);
@@ -551,11 +557,13 @@ export async function POST(req: NextRequest) {
         drawText(page, subjDisplay, rx, ry, regFont, size);
         rx += colW.title;
 
-        // ── PHASE 2A: Marks columns ───────────────────────────────────────────
-        drawText(page, int, rx + 1, ry, regFont, size, BLACK); rx += colW.int;
-        drawText(page, ext, rx + 1, ry, regFont, size, BLACK); rx += colW.theo;
+        // ── PHASE 2A: Marks columns — grace shown in green ───────────────────
+        const intColor = intGrace > 0 ? rgb(0.1, 0.4, 0.1) : BLACK;
+        const extColor = extGrace > 0 ? rgb(0.1, 0.4, 0.1) : BLACK;
+        drawText(page, int, rx + 1, ry, regFont, size, intColor); rx += colW.int;
+        drawText(page, ext, rx + 1, ry, regFont, size, extColor); rx += colW.theo;
 
-        const markColor = (displayGrade === "F" && !isAbsent) ? COL_FAIL : BLACK;
+        const markColor = (displayGrade === "F" && !isAbsent) ? COL_FAIL : (totalGrace > 0 ? rgb(0.1, 0.4, 0.1) : BLACK);
         drawText(page, overDisplay, rx + 1, ry, boldFont, size, markColor); rx += colW.over;
         drawText(page, String(displayMax), rx + 1, ry, regFont, size); rx += colW.max;
 
