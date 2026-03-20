@@ -239,36 +239,54 @@ export async function POST(req: NextRequest) {
     const PAGE_H = 841.89;
     const MARGIN = 30;
 
-    // ── Precise block-height constants ───────────────────────────────────────
-    const HDR_H      = 18;   // student header row (Roll / Enroll / Name)
-    const COL_HDR_H  = 14;   // column label row (Code / Subject / Int …)
-    const ROW_H      = 12;   // one subject row
-    const FOOTER_H   = 18;   // Total / Result / SGPI footer row
-    const GAP_H      = 8;    // gap between students
-    const SIG_RESERVE = 90;  // bottom reserve for signature block
-
-    // Accurate per-student height: header + col-header + N subject rows + footer + gap
-    const calcBlockH = (s: StudentMark) =>
-      HDR_H + COL_HDR_H + (s.subjects.length * ROW_H) + FOOTER_H + GAP_H;
-
-    const studentBlockHeights = students.map(calcBlockH);
+    // ── Layout constants ──────────────────────────────────────────────────────
+    const STUDENTS_PER_PAGE = 4;   // always 4 students per page
+    const HDR_H_BASE     = 18;
+    const COL_HDR_H_BASE = 14;
+    const FOOTER_H_BASE  = 18;
+    const GAP_H_BASE     = 6;
+    const SIG_RESERVE    = 90;
 
     // First-page usable height (after header/banner)
-    const BANNER_H_EST = bannerImg ? (75 + 15 + 45) : (20 + 45); // banner/text + titles
+    const BANNER_H_EST = bannerImg ? (75 + 15 + 45) : (20 + 45);
     const firstPageUsable = PAGE_H - MARGIN * 2 - BANNER_H_EST;
     const otherPageUsable = PAGE_H - MARGIN * 2;
 
-    // Determine preferred cap: try fitting 4 students (tallest) on a blank page.
-    // If they fit → prefer 4/page. Otherwise → prefer 3/page.
-    const maxStudentH = Math.max(...studentBlockHeights, 1);
-    const prefer4 = (maxStudentH * 4) <= otherPageUsable;
-    const preferredCap = prefer4 ? 4 : 3;
+    // Group students into pages of STUDENTS_PER_PAGE
+    const pages: StudentMark[][] = [];
+    for (let i = 0; i < students.length; i += STUDENTS_PER_PAGE) {
+      pages.push(students.slice(i, i + STUDENTS_PER_PAGE));
+    }
+
+    // For each page group, compute a shared ROW_H that makes all 4 students fit
+    function computeScaledRowH(group: StudentMark[], usableH: number): {
+      HDR_H: number; COL_HDR_H: number; ROW_H: number; FOOTER_H: number; GAP_H: number;
+    } {
+      const maxSubjCount = Math.max(...group.map(s => s.subjects.length), 1);
+      const n = group.length;
+      // Fixed overhead per student (not subject rows)
+      const fixedPerStudent = HDR_H_BASE + COL_HDR_H_BASE + FOOTER_H_BASE + GAP_H_BASE;
+      const totalFixed = fixedPerStudent * n;
+      const availableForRows = usableH - totalFixed - SIG_RESERVE;
+      const totalRowSlots = group.reduce((acc, s) => acc + s.subjects.length, 0);
+      // Each student uses maxSubjCount row slots for consistent row heights
+      const totalRowSlotsUniform = maxSubjCount * n;
+      // Compute ROW_H that fills the space using uniform slot count
+      const rowH = Math.max(7, Math.min(12, Math.floor(availableForRows / Math.max(totalRowSlotsUniform, 1))));
+      return { HDR_H: HDR_H_BASE, COL_HDR_H: COL_HDR_H_BASE, ROW_H: rowH, FOOTER_H: FOOTER_H_BASE, GAP_H: GAP_H_BASE };
+    }
+
+    // Dummy values — overridden per-page
+    const HDR_H = HDR_H_BASE;
+    const COL_HDR_H = COL_HDR_H_BASE;
+    const FOOTER_H = FOOTER_H_BASE;
+    const GAP_H = GAP_H_BASE;
 
     let page = pdfDoc.addPage([PAGE_W, PAGE_H]);
     let curY = PAGE_H - MARGIN;
 
     const drawHeader = (p: PDFPage, y: number, isFirst: boolean) => {
-      if (!isFirst) return y; // sub-pages: no repeated header, full height available
+      if (!isFirst) return y;
 
       let currentY = y;
       if (bannerImg) {
@@ -295,6 +313,9 @@ export async function POST(req: NextRequest) {
       return currentY - 45;
     };
 
+    // Fill page white first so no black areas show, then draw header on top
+    page.drawRectangle({ x: 0, y: 0, width: PAGE_W, height: PAGE_H, color: rgb(1,1,1) });
+    curY = PAGE_H - MARGIN;
     curY = drawHeader(page, curY, true);
 
     // Column widths (total ≈ 507pt within 535pt content area, ~28pt right padding)
@@ -311,38 +332,24 @@ export async function POST(req: NextRequest) {
       earn:  25,
     };
 
-    // ── Per-page student placement ────────────────────────────────────────────
-    // Rules:
-    //   1. Try to fit `preferredCap` (4 or 3) students per page.
-    //   2. If a student physically does not fit in the remaining space → new page.
-    //   3. Never put more than preferredCap students on one page even if space allows
-    //      (keeps the sheet visually consistent and readable).
-    //   4. On sub-pages (page > 1) the full page height is available.
-    let studentsOnCurrentPage = 0;
-    let isFirstPage = true;
+    // ── Render page by page, 4 students per page ──────────────────────────────
+    for (let pageIdx = 0; pageIdx < pages.length; pageIdx++) {
+      const group = pages[pageIdx];
+      const isFirst = pageIdx === 0;
+      const usableH = isFirst ? firstPageUsable : otherPageUsable;
+      const { ROW_H: scaledROW_H } = computeScaledRowH(group, usableH);
 
-    for (const s of students) {
-      const sIdx = students.indexOf(s);
-      const blockH = studentBlockHeights[sIdx];
-      const usableNow = isFirstPage ? firstPageUsable : otherPageUsable;
-
-      // Break to a new page if:
-      //   (a) no physical space left for this block, OR
-      //   (b) preferred cap already reached for this page
-      const noSpace       = (curY - blockH) < (MARGIN + SIG_RESERVE);
-      const capReached    = studentsOnCurrentPage >= preferredCap;
-
-      if (studentsOnCurrentPage > 0 && (noSpace || capReached)) {
+      if (pageIdx > 0) {
         page = pdfDoc.addPage([PAGE_W, PAGE_H]);
+        // Fill page white to prevent black areas
+        page.drawRectangle({ x: 0, y: 0, width: PAGE_W, height: PAGE_H, color: rgb(1,1,1) });
         curY = PAGE_H - MARGIN;
         curY = drawHeader(page, curY, false);
-        studentsOnCurrentPage = 0;
-        isFirstPage = false;
       }
 
+    for (const s of group) {
       // Student Header — Roll No left | Enrollment center | Name right (dynamic)
       const HDR_SIZE = 8;
-      const HDR_H = 18;
       const contentW = PAGE_W - MARGIN * 2;
 
       drawRect(page, MARGIN, curY - HDR_H, contentW, HDR_H, rgb(0.96, 0.96, 0.96));
@@ -415,22 +422,19 @@ export async function POST(req: NextRequest) {
         const totalGrace = intGrace + extGrace;
 
         // ── PHASE 1A: Grace marks display format ────────────────────────────
-        // The apply route adds grace into int_marks / theo_marks directly in DB.
-        // grace_marks.original_marks = int_grace added, grace_marks.grace_given = ext_grace added.
-        // So current intNum already includes intGrace. Display as "(original)+@(grace)".
+        // Grace is already baked into int_marks / theo_marks in DB.
+        // Show the final combined marks only (no +@ notation visible on sheet).
 
-        // Internal marks display
-        const int = sub.int_marks != null
-          ? (intGrace > 0 ? `${intNum - intGrace}+@${intGrace}` : String(intNum))
-          : "-";
+        // Internal marks display — show combined total
+        const int = sub.int_marks != null ? String(intNum) : "-";
 
-        // External marks display
+        // External marks display — show combined total
         const ext = sub.theo_marks != null || canUseDerivedExt || sub.prac_marks != null
-          ? (extGrace > 0 ? `${extNum - extGrace}+@${extGrace}` : String(extNum))
+          ? String(extNum)
           : "-";
 
-        // Overall: if any grace was applied show originalTotal+@totalGrace
-        const overDisplay = totalGrace > 0 ? `${over - totalGrace}+@${totalGrace}` : String(over);
+        // Overall — show combined total
+        const overDisplay = String(over);
 
         const credits = sub.credits ?? 2;
         const earn = sub.earned_credits ?? (sub.is_pass ? credits : 0);
@@ -540,21 +544,18 @@ export async function POST(req: NextRequest) {
           }
           subjDisplay = subjDisplay.slice(0, lo) + "…";
         }
-        const ROW_H = 12;
-        drawRect(page, MARGIN, curY - ROW_H, PAGE_W - MARGIN * 2, ROW_H, COL_WHITE, true);
-        const ry = curY - 9;
+        drawRect(page, MARGIN, curY - scaledROW_H, PAGE_W - MARGIN * 2, scaledROW_H, COL_WHITE, true);
+        const ry = curY - Math.max(4, scaledROW_H - 3);
 
         drawText(page, displayCode, rx, ry, regFont, size); rx += colW.code;
         drawText(page, subjDisplay, rx, ry, regFont, size);
         rx += colW.title;
 
-        // ── PHASE 2A: Marks columns — grace notation "12+@2" in green ───────
-        const intColor = intGrace > 0 ? rgb(0.1, 0.4, 0.1) : BLACK;
-        const extColor = extGrace > 0 ? rgb(0.1, 0.4, 0.1) : BLACK;
-        drawText(page, int, rx + 1, ry, regFont, size, intColor); rx += colW.int;
-        drawText(page, ext, rx + 1, ry, regFont, size, extColor); rx += colW.theo;
+        // ── PHASE 2A: Marks columns ───────────────────────────────────────────
+        drawText(page, int, rx + 1, ry, regFont, size, BLACK); rx += colW.int;
+        drawText(page, ext, rx + 1, ry, regFont, size, BLACK); rx += colW.theo;
 
-        const markColor = (displayGrade === "F" && !isAbsent) ? COL_FAIL : (totalGrace > 0 ? rgb(0.1, 0.4, 0.1) : BLACK);
+        const markColor = (displayGrade === "F" && !isAbsent) ? COL_FAIL : BLACK;
         drawText(page, overDisplay, rx + 1, ry, boldFont, size, markColor); rx += colW.over;
         drawText(page, String(displayMax), rx + 1, ry, regFont, size); rx += colW.max;
 
@@ -566,7 +567,7 @@ export async function POST(req: NextRequest) {
         drawText(page, String(credits), rx + 1, ry, regFont, size); rx += colW.cr;
         drawText(page, isAbsent ? "0" : String(earn), rx + 1, ry, regFont, size);
 
-        curY -= ROW_H;
+        curY -= scaledROW_H;
       }
 
       // O.229: Check if student has CC participation — add 0.1 GPA bonus to SGPI
@@ -635,8 +636,8 @@ export async function POST(req: NextRequest) {
 
       curY -= FOOTER_H; // move past footer
       curY -= GAP_H;    // gap before next student block
-      studentsOnCurrentPage++;
     }
+    } // end page group loop
 
     // Final Signatures — placed immediately after last student with fixed padding
     const SIG_W = 100;
